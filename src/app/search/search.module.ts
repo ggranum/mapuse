@@ -16,7 +16,7 @@ import { SearchService } from './search.service';
     ReactiveFormsModule,
     HttpModule,
     MapModule,
-    SimpleNotificationsModule,
+    SimpleNotificationsModule.forRoot(),
   ],
   declarations: [SearchComponent],
   providers: [SearchService],
