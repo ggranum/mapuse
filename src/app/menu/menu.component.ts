@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ComponentStillLoadingError } from '@angular/core/src/linker/compiler';
+import { ActivatedRoute } from '@angular/router';
+import { Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 
 import { ConfigService } from '../config/config.service';
 import { PolygonService } from '../annotations/polygon/polygon.service';
 import { DrawLineService } from '../annotations/draw-line/draw-line.service';
-import { Tool } from '../config/map';
+import { MenuItem, Tool } from '../config/map';
 
 import 'jquery';
 
@@ -16,10 +18,12 @@ export class MenuComponent implements OnInit {
 
   // private services: any[];
   // tools: Tool[];
-  @Input() collection: string;
+  collection: string;
   // active = 'active';
 
-  constructor() { }
+  components: MenuItem[];
+
+  constructor(private route: ActivatedRoute, private configService: ConfigService) { }
 
   // constructor(private configService: ConfigService,
   //             private polygonService: PolygonService,
@@ -32,11 +36,14 @@ export class MenuComponent implements OnInit {
   //   service.handle(tool);
   // }
 
-  toggle(event: Event) {
-    $(event.srcElement).parents('.panel').find('.panel-body').slideToggle();
-  }
-
   ngOnInit() {
+    let urlSegments = this.route.snapshot.url;
+    this.collection = urlSegments[urlSegments.length-1].path;
+
+    this.configService.getMapConfig(this.collection).subscribe(mapConfig => {
+      this.components = mapConfig.components;
+    });
+
     // this.services = [{
     //   name: 'polygon',
     //   service: this.polygonService,
@@ -51,5 +58,4 @@ export class MenuComponent implements OnInit {
     // });
     // console.log('TOOLS: ', this.tools);
   }
-
 }

@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row row-offcanvas row-offcanvas-left {{active}}">
+    <app-menu></app-menu>
+
+    <div class="xs-12" id="main">
+      <button (click)="toggleMenu()" class="btn btn-default menu" data-toggle="offcanvas">
+        <i class="fa fa-navicon fa-2x"></i>
+      </button>
+
+      <app-map></app-map>
+      <app-search></app-search>
+    </div>
+  </div>
+</div>

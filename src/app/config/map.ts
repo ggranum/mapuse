@@ -1,3 +1,4 @@
+import { Component, Type } from '@angular/core';
 export interface Layer {
   type: string;
   url: string;
@@ -15,6 +16,7 @@ export interface MapConfig {
   crs: any;
   layers: Layer[];
   tools: Tool[];
+  components: MenuItem[];
 }
 
 export interface Tool {
@@ -22,4 +24,9 @@ export interface Tool {
   name: string;
   icon: string;
   tooltip: string;
+}
+
+export interface MenuItem {
+  title: string;
+  type: string;
 }

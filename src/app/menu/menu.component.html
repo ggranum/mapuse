@@ -1,6 +1,9 @@
 <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
   <ul class="nav" id="menu" [dragula]="'menu'">
-    <li>
+    <li *ngFor="let c of components">
+      <app-menu-item [component]="c"></app-menu-item>
+    </li>
+    <!--<li>
       <div class="row">
         <div class="col-xs-12">
           <div class="panel {{collection}}-panel">
@@ -43,7 +46,7 @@
               <h3 class="panel-title">Overview Map</h3>
               <span class="pull-right"><i class="glyphicon glyphicon-minus"></i></span>
             </div>
-            <div class="panel-body"><!-- NOTE: This is not set to collapse as it is necessary to do it later or the map isn't visible' -->
+            <div class="panel-body"> NOTE: This is not set to collapse as it is necessary to do it later or the map isn't visible'
               <app-overview-map></app-overview-map>
             </div>
           </div>
@@ -93,6 +96,6 @@
           </div>
         </div>
       </div>
-    </li>
+    </li>-->
   </ul>
 </div>

@@ -12,6 +12,7 @@ import { MenuModule } from './menu/menu.module';
 import { ConfigService } from './config/config.service';
 
 import { AppComponent } from './app.component';
+import { ClientModule } from './client/client.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AppComponent } from './app.component';
     OsModule,
     GeologyModule,
     MenuModule,
+    ClientModule,
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent],

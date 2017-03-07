@@ -12,6 +12,9 @@ export class FileUploadComponent implements OnInit {
   private files: Array<File>;
 
   constructor(private fileUploadService: FileUploadService) { }
+  toggle(event: Event) {
+    $(event.srcElement).parents('.panel').find('.panel-body').slideToggle();
+  }
 
   upload() {
     console.log('Upload File');

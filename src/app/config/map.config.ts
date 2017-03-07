@@ -1,4 +1,7 @@
+import { OverviewMapComponent } from '../menu/components/overview-map/overview-map.component';
 import { MapConfig } from './map';
+import { FileUploadComponent } from "../menu/components/file-upload/file-upload.component";
+import { JidiPreviewComponent } from "../menu/components/jidi-preview/jidi-preview.component";
 
 export const MAP_CONFIG: MapConfig[] = [{
   id: 'os',
@@ -38,6 +41,16 @@ export const MAP_CONFIG: MapConfig[] = [{
     icon: 'print',
     tooltip: 'Print Map',
   }],
+  components: [
+    {
+      title: 'File Upload',
+      type: 'FileUploadComponent',
+    },
+    {
+      title: 'Overview Map',
+      type: 'OverviewMapComponent',
+    },
+  ],
 }, {
   id: 'geology',
   extent: [0, 0, 700000, 1300000],
@@ -79,4 +92,18 @@ export const MAP_CONFIG: MapConfig[] = [{
     icon: 'print',
     tooltip: 'Print Map',
   }],
+  components: [
+    {
+      title: 'File Upload',
+      type: 'FileUploadComponent',
+    },
+    {
+      title: 'Overview Map',
+      type: 'OverviewMapComponent',
+    },
+    {
+      title: 'Jidi Preview',
+      type: 'JidiPreviewComponent',
+    },
+  ],
 }];
