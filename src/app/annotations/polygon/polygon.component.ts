@@ -1,6 +1,9 @@
 import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 
-import { Map, layer, source, interaction } from 'openlayers';
+import OlMap from 'ol/map';
+import VectorLayer from 'ol/layer/vector';
+import VectorSource from 'ol/source/vector';
+import Draw from 'ol/interaction/draw';
 
 import { MapService } from '../../map/map.service';
 
@@ -12,8 +15,8 @@ import { MapService } from '../../map/map.service';
 export class PolygonComponent implements OnInit {
 
   isActive: boolean = false;
-  private map: Map;
-  private interact: interaction.Draw;
+  private map: OlMap;
+  private interact: Draw;
 
   constructor(private el: ElementRef,
               private renderer: Renderer,
@@ -26,9 +29,9 @@ export class PolygonComponent implements OnInit {
 
     if (this.isActive) {
       // FIXME: Disable all other controls.
-      const polygonSource = new source.Vector({wrapX: false});
+      const polygonSource = new VectorSource({wrapX: false});
 
-      const vector = new layer.Vector({
+      const vector = new VectorLayer({
         source: polygonSource,
       });
 
@@ -36,10 +39,10 @@ export class PolygonComponent implements OnInit {
       // FIXME: Get annotations layer from map.
       this.map.addLayer(vector);
 
-      this.interact = new interaction.Draw({
+      this.interact = new Draw({
         source: polygonSource,
         type: 'Circle',
-        geometryFunction: interaction.Draw.createRegularPolygon(4),
+        geometryFunction: Draw.createRegularPolygon(4),
       });
       this.map.addInteraction(this.interact);
     } else {

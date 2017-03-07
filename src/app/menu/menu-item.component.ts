@@ -1,3 +1,4 @@
+import { AnnotationsComponent } from '../annotations/annotations.component';
 import { MenuItem } from '../config/map';
 import { Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 
@@ -24,6 +25,7 @@ export class MenuItemComponent implements OnInit {
     this.componentLookup.set('FileUploadComponent', FileUploadComponent);
     this.componentLookup.set('OverviewMapComponent', OverviewMapComponent);
     this.componentLookup.set('JidiPreviewComponent', JidiPreviewComponent);
+    this.componentLookup.set('AnnotationsComponent', AnnotationsComponent);
   }
 
   toggle(event: Event) {

@@ -1,6 +1,11 @@
 import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 
-import { Map, layer, source, interaction, style } from 'openlayers';
+import OlMap from 'ol/map';
+import VectorSource from 'ol/source/vector';
+import VectorLayer from 'ol/layer/vector';
+import Draw from 'ol/interaction/draw';
+import Style from 'ol/style/style';
+import Stroke from 'ol/style/stroke';
 
 import { MapService } from '../../map/map.service';
 
@@ -12,8 +17,8 @@ import { MapService } from '../../map/map.service';
 export class DrawLineComponent implements OnInit {
 
   isActive: boolean = false;
-  private map: Map;
-  private interact: interaction.Draw;
+  private map: OlMap;
+  private interact: Draw;
 
   constructor(private el: ElementRef,
               private renderer: Renderer,
@@ -26,16 +31,16 @@ export class DrawLineComponent implements OnInit {
 
     if (this.isActive) {
       // FIXME: Disable all other controls.
-      const drawLineSource = new source.Vector({wrapX: false});
+      const drawLineSource = new VectorSource({wrapX: false});
 
-      let drawLineStyle = new style.Style({
-        stroke: new style.Stroke({
+      let drawLineStyle = new Style({
+        stroke: new Stroke({
           color: '#fff',
           width: 2,
         }),
       });
 
-      const vector = new layer.Vector({
+      const vector = new VectorLayer({
         source: drawLineSource,
         style: drawLineStyle,
       });
@@ -44,7 +49,7 @@ export class DrawLineComponent implements OnInit {
       // FIXME: Get annotations layer from map.
       this.map.addLayer(vector);
 
-      this.interact = new interaction.Draw({
+      this.interact = new Draw({
         source: drawLineSource,
         type: 'LineString',
       });

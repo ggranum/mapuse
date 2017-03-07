@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewChecked, ElementRef, Renderer } from '@angular/core';
 
-import { Map, layer, source, control } from 'openlayers';
+import { Map, layer, source, control } from 'ol';
 
 import { MapService } from '../../../map/map.service';
 

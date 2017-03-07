@@ -3,22 +3,37 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import * as proj4 from 'proj4';
+import proj4 from 'proj4';
 
-import {
-  Map as OlMap, proj, View, control, layer, source, Attribution, Extent,
-  coordinate, Coordinate, Feature, geom, style, Overlay } from 'openlayers';
+import OlMap from 'ol/map';
+import proj from 'ol/proj';
+import View from 'ol/view';
+
+import control from 'ol/control';
+import ZoomSlider from 'ol/control/zoomslider';
+import ScaleLine from 'ol/control/scaleline';
+import MousePosition from 'ol/control/mouseposition';
+import AttributionControl from 'ol/control/attribution';
+
+import Tile from 'ol/layer/tile';
+import TileWMS from 'ol/source/tilewms';
+import Vector from 'ol/source/vector';
+import Extent from 'ol/extent';
+import Coordinate from 'ol/coordinate';
+import Feature from 'ol/feature';
+import geom from 'ol/geom/geometry';
+import style from 'ol/style';
+import Overlay from 'ol/overlay';
+import Attribution from 'ol/attribution';
 
 import { MapConfig, Layer } from '../config/map';
 import { ConfigService } from '../config/config.service';
 // import { NotificationsService } from '../notifications/notifications.service';
 
-// import { Map as OlMap } from 'openlayers';
-
-proj4.default.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
+proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
                          ' +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,' +
                          '-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs');
-proj.setProj4(proj4.default);
+proj.setProj4(proj4);
 
 @Injectable()
 export class MapService implements OnInit {
@@ -54,11 +69,11 @@ export class MapService implements OnInit {
     // Create map.
     let map = new OlMap({
       controls: control.defaults().extend([
-        new control.ZoomSlider(),
-        new control.ScaleLine(),
-        new control.Attribution(),
-        new control.MousePosition({
-          coordinateFormat: coordinate.createStringXY(4),
+        new ZoomSlider(),
+        new ScaleLine(),
+        new AttributionControl(),
+        new MousePosition({
+          coordinateFormat: Coordinate.createStringXY(4),
           projection: 'EPSG:27700',
         }),
       ]),
@@ -116,11 +131,11 @@ export class MapService implements OnInit {
 
     iconFeature.setStyle(iconStyle);
 
-    let vectorSource = new source.Vector({
+    let vectorSource = new Vector({
       features: [iconFeature],
     });
 
-    let vectorLayer = new layer.Vector({
+    let vectorLayer = new Vector({
       source: vectorSource,
     });
     let map = this.maps.get('mainmap');
@@ -148,7 +163,7 @@ export class MapService implements OnInit {
         // console.log('COORDS: ', coordinates);
         popup.setPosition(position);
 
-        const hdms = coordinate.toStringHDMS(proj.transform(position, 'EPSG:27700', 'EPSG:4326'));
+        const hdms = Coordinate.toStringHDMS(proj.transform(position, 'EPSG:27700', 'EPSG:4326'));
 
         /* tslint:disable-next-line */
         const content = `<strong>${feature.get('name')}</strong><hr/>Population: ${feature.get('population')}<br/>Rainfall: ${feature.get('rainfall')}<br/>Coordinates (BNG): ${position}<br/>Coordinates (HDMS): ${hdms}`;
@@ -182,7 +197,7 @@ export class MapService implements OnInit {
    * Construct a list of layers from the map config.
    */
   private getLayers(layerConfig: Layer[], projection: proj.Projection): any[] {
-    let layers: layer.Tile[] = [];
+    let layers: Tile[] = [];
 
     for (let layerConf of layerConfig) {
       let attributions = '';
@@ -190,8 +205,8 @@ export class MapService implements OnInit {
         attributions += attribution;
       }
 
-      layers.push(new layer.Tile({
-        source: new source.TileWMS({
+      layers.push(new Tile({
+        source: new TileWMS({
           url: layerConf.url,
           attributions: [
             new Attribution({html: attributions}),

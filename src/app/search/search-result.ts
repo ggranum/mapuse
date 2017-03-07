@@ -1,4 +1,4 @@
-import { Coordinate } from 'openlayers';
+import { Coordinate } from 'ol';
 
 export interface SearchResult {
   name: string;

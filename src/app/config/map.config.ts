@@ -105,5 +105,9 @@ export const MAP_CONFIG: MapConfig[] = [{
       title: 'Jidi Preview',
       type: 'JidiPreviewComponent',
     },
+    {
+      title: 'Annotations',
+      type: 'AnnotationsComponent',
+    }
   ],
 }];

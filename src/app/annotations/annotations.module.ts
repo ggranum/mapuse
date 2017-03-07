@@ -14,5 +14,6 @@ import { PolygonService } from './polygon/polygon.service';
   declarations: [AnnotationsComponent, DrawLineComponent, PolygonComponent],
   providers: [DrawLineService, PolygonService],
   exports: [DrawLineComponent, PolygonComponent],
+  entryComponents: [AnnotationsComponent],
 })
 export class AnnotationsModule { }
