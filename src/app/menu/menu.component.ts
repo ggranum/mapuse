@@ -7,8 +7,6 @@ import { PolygonService } from '../annotations/polygon/polygon.service';
 import { DrawLineService } from '../annotations/draw-line/draw-line.service';
 import { MenuItem, Tool } from '../config/map';
 
-import 'jquery';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',

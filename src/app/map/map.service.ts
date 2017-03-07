@@ -5,11 +5,6 @@ import 'rxjs/add/observable/of';
 
 import * as proj4 from 'proj4';
 
-// import * as $ from 'jquery';
-// import * as jquery from 'jquery';
-// import $ from 'jquery';
-import 'jquery';
-
 import {
   Map as OlMap, proj, View, control, layer, source, Attribution, Extent,
   coordinate, Coordinate, Feature, geom, style, Overlay } from 'openlayers';
