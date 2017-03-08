@@ -1,4 +1,3 @@
-import { ClientRoutingModule } from './client.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
@@ -12,7 +11,6 @@ import { MenuModule } from "../menu/menu.module";
     MapModule,
     SearchModule,
     MenuModule,
-    ClientRoutingModule
   ],
   declarations: [ClientComponent],
   exports: [ClientComponent],
