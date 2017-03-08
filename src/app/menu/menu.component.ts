@@ -1,11 +1,8 @@
-import { ComponentStillLoadingError } from '@angular/core/src/linker/compiler';
 import { ActivatedRoute } from '@angular/router';
-import { Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ConfigService } from '../config/config.service';
-import { PolygonService } from '../annotations/polygon/polygon.service';
-import { DrawLineService } from '../annotations/draw-line/draw-line.service';
-import { MenuItem, Tool } from '../config/map';
+import { MenuItem } from '../config/map';
 
 @Component({
   selector: 'app-menu',

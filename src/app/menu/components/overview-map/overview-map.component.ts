@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, AfterViewChecked/*, ElementRef, Renderer*/ } from '@angular/core';
 
-import { Map, layer, source, control } from 'ol';
+// import { Map, layer, source, control } from 'ol';
 
-import { MapService } from '../../../map/map.service';
+// import { MapService } from '../../../map/map.service';
 
 @Component({
   selector: 'app-overview-map',
@@ -11,10 +11,10 @@ import { MapService } from '../../../map/map.service';
 })
 export class OverviewMapComponent implements OnInit, AfterViewChecked {
 
-  private map: Map;
-  private overviewMapControl: control.OverviewMap;
+  // private map: Map;
+  // private overviewMapControl: control.OverviewMap;
 
-  constructor(private mapService: MapService, private el: ElementRef, private renderer: Renderer) { }
+  // constructor(private mapService: MapService, private el: ElementRef, private renderer: Renderer) { }
 
   ngOnInit() {
     // let overviewMap = this.el.nativeElement.querySelector('div');

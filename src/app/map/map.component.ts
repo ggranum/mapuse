@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, AfterContentInit, OnInit, Input } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 import { MapService } from './map.service';
 import { ActivatedRoute } from "@angular/router";

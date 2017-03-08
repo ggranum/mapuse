@@ -29,11 +29,18 @@ export class MenuItemComponent implements OnInit {
   }
 
   toggle(event: Event) {
+    if (!event.srcElement) {
+      return;
+    }
     $(event.srcElement).parents('.panel').find('.panel-body').slideToggle();
   }
 
   ngOnInit() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(this.componentLookup.get(this.component.type));
+    let component = this.componentLookup.get(this.component.type);
+    if (!component) {
+      throw `${this.component.type} has not been defined`;
+    }
+    const factory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.createComponent(factory);
   }
 }

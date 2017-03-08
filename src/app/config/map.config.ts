@@ -1,7 +1,4 @@
-import { OverviewMapComponent } from '../menu/components/overview-map/overview-map.component';
 import { MapConfig } from './map';
-import { FileUploadComponent } from "../menu/components/file-upload/file-upload.component";
-import { JidiPreviewComponent } from "../menu/components/jidi-preview/jidi-preview.component";
 
 export const MAP_CONFIG: MapConfig[] = [{
   id: 'os',

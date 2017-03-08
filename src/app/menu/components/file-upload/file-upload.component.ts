@@ -13,6 +13,9 @@ export class FileUploadComponent implements OnInit {
 
   constructor(private fileUploadService: FileUploadService) { }
   toggle(event: Event) {
+    if (!event.srcElement) {
+      return;
+    }
     $(event.srcElement).parents('.panel').find('.panel-body').slideToggle();
   }
 

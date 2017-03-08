@@ -1,4 +1,3 @@
-import { Component, Type } from '@angular/core';
 export interface Layer {
   type: string;
   url: string;

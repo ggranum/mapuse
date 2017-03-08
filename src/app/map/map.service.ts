@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/observable/of';
 
 import proj4 from 'proj4';
 
@@ -46,50 +46,50 @@ export class MapService implements OnInit {
     this.maps = new Map();
   }
 
-  createMap(name: string, collectionId: string): OlMap {
+  createMap(name: string, collectionId: string) {
     let config: MapConfig;
     this.configService.getMapConfig(collectionId).subscribe(collection => {
       config = collection;
-    });
-    // console.log('CONFIG: ', config);
+      // console.log('CONFIG: ', config);
 
-    let extent: Extent = [0, 0, 700000, 1300000];
-    let projection = proj.get(config.crs.code);
-    proj.addProjection(projection);
+      let extent: Extent = [0, 0, 700000, 1300000];
+      let projection = proj.get(config.crs.code);
+      proj.addProjection(projection);
 
-    // Convert layer config to an array of OpenLayers Layer objects.
-    let layers = this.getLayers(config.layers, projection);
+      // Convert layer config to an array of OpenLayers Layer objects.
+      let layers = this.getLayers(config.layers, projection);
 
-    // FIXME: config.center is just an array e.g. [33600, 67500] (easting/northing)
-    //        we need a better way to set the center point of the map.
-    // console.log('Centre Point: ', proj.transform([55.945589, -3.182186], 'EPSG:3857', projection));
-    // console.log('Centre Point: ', proj.transform([55.945589, -3.182186], 'EPSG:4326', projection));
-    // center: proj.fromLonLat([55.945589, -3.182186], 'EPSG:27700'),
+      // FIXME: config.center is just an array e.g. [33600, 67500] (easting/northing)
+      //        we need a better way to set the center point of the map.
+      // console.log('Centre Point: ', proj.transform([55.945589, -3.182186], 'EPSG:3857', projection));
+      // console.log('Centre Point: ', proj.transform([55.945589, -3.182186], 'EPSG:4326', projection));
+      // center: proj.fromLonLat([55.945589, -3.182186], 'EPSG:27700'),
 
-    // Create map.
-    let map = new OlMap({
-      controls: control.defaults().extend([
-        new ZoomSlider(),
-        new ScaleLine(),
-        new AttributionControl(),
-        new MousePosition({
-          coordinateFormat: Coordinate.createStringXY(4),
-          projection: 'EPSG:27700',
+      // Create map.
+      let map = new OlMap({
+        controls: control.defaults().extend([
+          new ZoomSlider(),
+          new ScaleLine(),
+          new AttributionControl(),
+          new MousePosition({
+            coordinateFormat: Coordinate.createStringXY(4),
+            projection: 'EPSG:27700',
+          }),
+        ]),
+        layers: layers,
+        target: name,
+        view: new View({
+          projection: projection,
+          center: config.center, // FIXME: See above.
+          extent: extent,
+          zoom: 6, // FIXME: Hard-coded, not good.
         }),
-      ]),
-      layers: layers,
-      target: name,
-      view: new View({
-        projection: projection,
-        center: config.center, // FIXME: See above.
-        extent: extent,
-        zoom: 6, // FIXME: Hard-coded, not good.
-      }),
+      });
+
+      this.maps.set(name, map);
     });
 
-    this.maps.set(name, map);
-
-    return map;
+    // return map;
     // return Observable.of(map);
   }
 
@@ -142,7 +142,7 @@ export class MapService implements OnInit {
     map.addLayer(vectorLayer);
 
     // FIXME: Must be a better way to get the element.
-    let element = document.getElementById('mainmap-popup');
+    let element = document.getElementById('mainmap-popup') as Element;
     console.log('Popover Element: ', element);
     let popup = new Overlay({
       element: element,
@@ -167,14 +167,14 @@ export class MapService implements OnInit {
 
         /* tslint:disable-next-line */
         const content = `<strong>${feature.get('name')}</strong><hr/>Population: ${feature.get('population')}<br/>Rainfall: ${feature.get('rainfall')}<br/>Coordinates (BNG): ${position}<br/>Coordinates (HDMS): ${hdms}`;
-        (<any>$(element)).popover({
+        ($(element)).popover({
           'placement': 'top',
           'html': true,
           'content': content,
         });
-        (<any>$(element)).popover('show');
+        ($(element)).popover('show');
       } else {
-        (<any>$(element)).popover('destroy');
+        ($(element)).popover('destroy');
       }
     });
 
