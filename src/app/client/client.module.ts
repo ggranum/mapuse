@@ -9,11 +9,12 @@ import { MenuModule } from "../menu/menu.module";
 @NgModule({
   imports: [
     CommonModule,
-    ClientRoutingModule,
     MapModule,
     SearchModule,
     MenuModule,
+    ClientRoutingModule
   ],
-  declarations: [ClientComponent]
+  declarations: [ClientComponent],
+  exports: [ClientComponent],
 })
 export class ClientModule { }

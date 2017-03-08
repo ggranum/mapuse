@@ -18,11 +18,10 @@ export class MapComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    let urlSegments = this.route.snapshot.url;
-    let collection = urlSegments[urlSegments.length-1].path;
+    let collectionId = this.route.snapshot.data.collectionId;
 
     // Map needs to be created after the view has been initialized or the template
     // will not be properly defined i.e. map name will not have been set.
-    this.mapService.createMap(this.mapname, collection);
+    this.mapService.createMap(this.mapname, collectionId);
   }
 }

@@ -5,9 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
-import { OsModule } from './os/os.module';
-import { GeologyModule } from './geology/geology.module';
-import { MenuModule } from './menu/menu.module';
 
 import { ConfigService } from './config/config.service';
 
@@ -22,9 +19,6 @@ import { ClientModule } from './client/client.module';
     BrowserModule,
     LayoutModule,
     AppRoutingModule,
-    OsModule,
-    GeologyModule,
-    MenuModule,
     ClientModule,
   ],
   providers: [ConfigService],

@@ -1,17 +1,15 @@
 import { NgModule }     from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ClientComponent }    from './client.component';
-
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'map/os',  component: ClientComponent },
-      { path: 'map/geology',  component: ClientComponent },
+      { path: 'map/os',  loadChildren: './clients/os.module#OsModule', data: { collectionId: 'os' } },
+      { path: 'map/geology',  loadChildren: './clients/geology.module#GeologyModule', data: { collectionId: 'geology' } },
     ]),
   ],
   exports: [
     RouterModule,
   ],
 })
-export class ClientRoutingModule { }
+export class ClientRoutingModule {}

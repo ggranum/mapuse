@@ -32,10 +32,8 @@ export class MenuComponent implements OnInit {
   // }
 
   ngOnInit() {
-    let urlSegments = this.route.snapshot.url;
-    this.collection = urlSegments[urlSegments.length-1].path;
-
-    this.configService.getMapConfig(this.collection).subscribe(mapConfig => {
+    let collectionId = this.route.snapshot.data.collectionId;
+    this.configService.getMapConfig(collectionId).subscribe(mapConfig => {
       this.components = mapConfig.components;
     });
 
