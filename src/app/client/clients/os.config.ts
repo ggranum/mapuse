@@ -1,5 +1,5 @@
-import { OverviewMapComponent } from '../../menu/components/overview-map/overview-map.component';
-import { FileUploadComponent } from '../../menu/components/file-upload/file-upload.component';
+import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
+import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
 import { MapConfig } from '../../config/map';
 
 export const OS_CONFIG: MapConfig = {

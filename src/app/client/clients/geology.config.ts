@@ -1,7 +1,7 @@
 import { AnnotationsComponent } from '../../annotations/annotations.component';
-import { JidiPreviewComponent } from '../../menu/components/jidi-preview/jidi-preview.component';
-import { OverviewMapComponent } from '../../menu/components/overview-map/overview-map.component';
-import { FileUploadComponent } from '../../menu/components/file-upload/file-upload.component';
+import { JidiPreviewComponent } from '../../menu/components/geology/jidi-preview/jidi-preview.component';
+import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
+import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
 import { MapConfig } from '../../config/map';
 
 export const GEOLOGY_CONFIG: MapConfig = {
