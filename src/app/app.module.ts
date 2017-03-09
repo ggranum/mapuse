@@ -1,3 +1,4 @@
+import { SearchModule } from './search/search.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,10 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ConfigService } from './config/config.service';
-
 import { AppComponent } from './app.component';
-import { ClientModule } from './client/client.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +17,8 @@ import { ClientModule } from './client/client.module';
     BrowserModule,
     LayoutModule,
     AppRoutingModule,
-    ClientModule,
+    SearchModule,
   ],
-  providers: [ConfigService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
