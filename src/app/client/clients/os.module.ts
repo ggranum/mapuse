@@ -2,7 +2,7 @@ import { OS_CONFIG } from './os.config';
 import { MapService } from '../../map/map.service';
 import { ConfigService, configServiceFactory } from '../../config/config.service';
 import { ClientModule } from '../client.module';
-import { OsRoutingModule } from './os.routing';
+import { OsRoutingModule } from './os-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

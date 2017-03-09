@@ -3,7 +3,7 @@ import { GEOLOGY_CONFIG } from './geology.config';
 import { MapService } from '../../map/map.service';
 import { ConfigService, configServiceFactory } from '../../config/config.service';
 import { ClientModule } from '../client.module';
-import { GeologyRoutingModule } from './geology.routing';
+import { GeologyRoutingModule } from './geology-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
