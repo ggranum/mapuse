@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JidiPreviewComponent implements OnInit {
 
+  readonly blah = 'blah';
   constructor() { }
 
   ngOnInit() {

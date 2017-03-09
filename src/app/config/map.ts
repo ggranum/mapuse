@@ -1,3 +1,4 @@
+import { Component, Type } from '@angular/core';
 export interface Layer {
   type: string;
   url: string;
@@ -27,5 +28,5 @@ export interface Tool {
 
 export interface MenuItem {
   title: string;
-  type: string;
+  type: Type<Component>;
 }

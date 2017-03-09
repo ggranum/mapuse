@@ -1,10 +1,5 @@
-import { AnnotationsComponent } from '../annotations/annotations.component';
 import { MenuItem } from '../config/map';
-import { Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
-
-import { FileUploadComponent } from "./components/file-upload/file-upload.component";
-import { OverviewMapComponent } from "./components/overview-map/overview-map.component";
-import { JidiPreviewComponent } from "./components/jidi-preview/jidi-preview.component";
+import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-menu-item',
@@ -19,14 +14,7 @@ export class MenuItemComponent implements OnInit {
   @ViewChild('placeholder', {read: ViewContainerRef})
   viewContainerRef: ViewContainerRef;
 
-  readonly componentLookup: Map<string,Type<Component>> = new Map<string,Type<Component>>();
-
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-    this.componentLookup.set('FileUploadComponent', FileUploadComponent);
-    this.componentLookup.set('OverviewMapComponent', OverviewMapComponent);
-    this.componentLookup.set('JidiPreviewComponent', JidiPreviewComponent);
-    this.componentLookup.set('AnnotationsComponent', AnnotationsComponent);
-  }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   toggle(event: Event) {
     if (!event.srcElement) {
@@ -36,11 +24,7 @@ export class MenuItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    let component = this.componentLookup.get(this.component.type);
-    if (!component) {
-      throw `${this.component.type} has not been defined`;
-    }
-    const factory = this.componentFactoryResolver.resolveComponentFactory(component);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(this.component.type);
     this.viewContainerRef.createComponent(factory);
   }
 }
