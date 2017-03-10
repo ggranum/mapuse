@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MapModule } from '../map/map.module';
+import { MapModule } from '../../map/map.module';
 
 import { SimpleNotificationsModule } from 'angular2-notifications';
 

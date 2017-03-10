@@ -4,7 +4,7 @@ import {
   // FormBuilder, FormGroup, FormControl, FormControlName, Validators,
 } from '@angular/forms';
 
-import { MapService } from '../map/map.service';
+import { MapService } from '../../map/map.service';
 import { NotificationsService } from 'angular2-notifications';
 import { SearchService } from './search.service';
 import { SearchResult } from './search-result';
