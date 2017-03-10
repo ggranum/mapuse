@@ -18,7 +18,7 @@ import { SearchResult } from './search-result';
 export class SearchComponent implements OnInit {
 
   term: string;
-  searchResults: SearchResult[];
+  searchResults: SearchResult[] = [];
   searchForm: FormGroup;
   errorMessage: string; // If an error has occured, the message from the server
 
@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
 
   search() {
     this.searchService.search(this.term).subscribe(
-      (result: SearchResult[]) => {
+      (result) => {
         this.searchResults = result;
         console.log('Search Results: ', this.searchResults);
 
@@ -62,7 +62,6 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchResults = [];
     this.searchForm = this.fb.group({
       'searchTerm': ['', [Validators.required, Validators.maxLength(64)]],
     });

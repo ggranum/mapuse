@@ -9,6 +9,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service';
+import { MaterialModule } from "@angular/material";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { SearchService } from './search.service';
     ReactiveFormsModule,
     HttpModule,
     MapModule,
+    MaterialModule,
     SimpleNotificationsModule.forRoot(),
   ],
   declarations: [SearchComponent],

@@ -1,14 +1,18 @@
-<div class="container-fluid">
-  <div class="row row-offcanvas row-offcanvas-left {{active}}">
+<md-sidenav-container class="roam-container">
+  <md-sidenav #sidenav class="roam-sidenav" mode="side" (open)="refreshMap()" (close)="refreshMap()">
     <app-menu></app-menu>
+  </md-sidenav>
 
-    <div class="xs-12" id="main">
-      <button (click)="toggleMenu()" class="btn btn-default menu" data-toggle="offcanvas">
-        <i class="fa fa-navicon fa-2x"></i>
-      </button>
+  <div class="roam-sidenav-content">
+    <button class="sidenav-menu" md-icon-button (click)="sidenav.toggle()">
+      <md-icon svgIcon="menu_google"></md-icon>
+    </button>
 
-      <app-map></app-map>
-      <app-search></app-search>
-    </div>
+    <!--<button md-button (click)="sidenav.toggle()">
+      Open Sidenav
+    </button>-->
+
+    <app-map></app-map>
+    <app-search></app-search>
   </div>
-</div>
+</md-sidenav-container>

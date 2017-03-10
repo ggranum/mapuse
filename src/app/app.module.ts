@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MaterialModule } from '@angular/material';
 
 // import { SimpleNotificationsModule } from 'angular2-notifications';
 
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     LayoutModule,
     AppRoutingModule,
+    MaterialModule,
   ],
   bootstrap: [AppComponent],
 })

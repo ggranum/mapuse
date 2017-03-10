@@ -93,6 +93,12 @@ export class MapService implements OnInit {
     // return Observable.of(map);
   }
 
+  refreshMaps() {
+    this.maps.forEach(map => {
+      map.updateSize();
+    });
+  }
+
   setCenter(point: Coordinate, zoomLevel: number) {
     // point = [33600, 67500];
     console.log('Centre on: ', point);

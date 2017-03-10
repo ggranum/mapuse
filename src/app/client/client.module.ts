@@ -4,6 +4,7 @@ import { ClientComponent } from './client.component';
 import { MapModule } from "../map/map.module";
 import { SearchModule } from "../tools/search/search.module";
 import { MenuModule } from "../menu/menu.module";
+import { MaterialModule } from "@angular/material";
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { MenuModule } from "../menu/menu.module";
     MapModule,
     SearchModule,
     MenuModule,
+    MaterialModule,
   ],
   declarations: [ClientComponent],
   exports: [ClientComponent],
