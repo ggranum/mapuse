@@ -4,8 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
-    "serve": "concurrently 'node ./proxy/proxy.js' 'ng serve --proxy-config proxy.conf.json'",
+    "start": "concurrently --raw 'node ./proxy/proxy.js' 'ng serve --proxy-config proxy.conf.json'",
     "lint": "tslint 'src/**/*.ts'",
     "lint-sass": "sass-lint -c ./.sass-lint.yml '**/*.sass' -v -q",
     "build": "concurrently 'yarn run lint' 'yarn run lint-sass' 'yarn run test'",
