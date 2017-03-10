@@ -5,7 +5,7 @@ import layer from 'ol/layer/layer';
 import source from 'ol/source/source';
 import Draw from 'ol/interaction/draw';
 
-import { MapService } from '../../map/map.service';
+import { MapService } from '../../../../../map/map.service';
 
 @Injectable()
 export class PolygonService {

@@ -22,21 +22,6 @@ export const OS_CONFIG: MapConfig = {
     opacity: 1,
   }],
   tools: [{
-    id: 'polygon',
-    name: 'Polygon',
-    icon: 'annotate',
-    tooltip: 'Draw Polygon on the map the map',
-  }, {
-    id: 'print',
-    name: 'Print',
-    icon: 'print',
-    tooltip: 'Print Map',
-  }, {
-    id: 'draw-line',
-    name: 'Draw Line',
-    icon: 'annotate',
-    tooltip: 'Draw Line on the map the map',
-  }, {
     id: 'print',
     name: 'Print',
     icon: 'print',

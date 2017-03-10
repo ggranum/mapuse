@@ -1,4 +1,4 @@
-import { AnnotationsComponent } from '../../annotations/annotations.component';
+import { AnnotationsComponent } from '../../menu/components/common/annotations/annotations.component';
 import { JidiPreviewComponent } from '../../menu/components/geology/jidi-preview/jidi-preview.component';
 import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
 import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
@@ -27,21 +27,6 @@ export const GEOLOGY_CONFIG: MapConfig = {
     opacity: 1,
   }],
   tools: [{
-    id: 'polygon',
-    name: 'Polygon',
-    icon: 'annotate',
-    tooltip: 'Draw Polygon on the map the map',
-  }, {
-    id: 'print',
-    name: 'Print',
-    icon: 'print',
-    tooltip: 'Print Map',
-  }, {
-    id: 'draw-line',
-    name: 'Draw Line',
-    icon: 'annotate',
-    tooltip: 'Draw Line on the map the map',
-  }, {
     id: 'print',
     name: 'Print',
     icon: 'print',

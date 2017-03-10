@@ -1,20 +1,18 @@
 import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 
 import OlMap from 'ol/map';
-import VectorSource from 'ol/source/vector';
 import VectorLayer from 'ol/layer/vector';
+import VectorSource from 'ol/source/vector';
 import Draw from 'ol/interaction/draw';
-import Style from 'ol/style/style';
-import Stroke from 'ol/style/stroke';
 
-import { MapService } from '../../map/map.service';
+import { MapService } from '../../../../../map/map.service';
 
 @Component({
-  selector: 'app-draw-line',
-  templateUrl: './draw-line.component.html',
-  styleUrls: ['./draw-line.component.scss'],
+  selector: 'app-polygon',
+  templateUrl: './polygon.component.html',
+  styleUrls: ['./polygon.component.scss'],
 })
-export class DrawLineComponent implements OnInit {
+export class PolygonComponent implements OnInit {
 
   isActive: boolean = false;
   private map: OlMap;
@@ -31,18 +29,10 @@ export class DrawLineComponent implements OnInit {
 
     if (this.isActive) {
       // FIXME: Disable all other controls.
-      const drawLineSource = new VectorSource({wrapX: false});
-
-      let drawLineStyle = new Style({
-        stroke: new Stroke({
-          color: '#fff',
-          width: 2,
-        }),
-      });
+      const polygonSource = new VectorSource({wrapX: false});
 
       const vector = new VectorLayer({
-        source: drawLineSource,
-        style: drawLineStyle,
+        source: polygonSource,
       });
 
       this.map = this.mapService.getMap('mainmap');
@@ -50,8 +40,9 @@ export class DrawLineComponent implements OnInit {
       this.map.addLayer(vector);
 
       this.interact = new Draw({
-        source: drawLineSource,
-        type: 'LineString',
+        source: polygonSource,
+        type: 'Circle',
+        geometryFunction: Draw.createRegularPolygon(4),
       });
       this.map.addInteraction(this.interact);
     } else {
