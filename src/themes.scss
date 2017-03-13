@@ -1,12 +1,60 @@
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins/_panels.scss';
+@import '~@angular/material/core/theming/all-theme';
+// Plus imports for other components in your app.
 
-// .os-panel {
-//   $theme: rgba(0, 60, 136, .5);
-//   @include panel-variant($theme, darken($theme, 50%), $theme, $theme);
-// }
+// Can override both foreground and background below if required
 
-// .geology-panel {
-//   $theme: rgba(65, 108, 83, .5);
-//   @include panel-variant($theme, darken($theme, 50%), $theme, $theme);
-// }
+// $mat-light-theme-background: (
+//   status-bar: map_get($mat-grey, 300),
+//   app-bar:    map_get($mat-grey, 100),
+//   background: map_get($mat-grey, 50),
+//   hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+//   card:       white,
+//   dialog:     white,
+//   disabled-button: rgba(black, 0.12),
+//   raised-button: white,
+// );
 
+// $mat-light-theme-foreground: (
+//   base:            black,
+//   divider:         rgba(black, 0.12),
+//   dividers:        rgba(black, 0.12),
+//   disabled:        rgba(black, 0.38),
+//   disabled-button: rgba(black, 0.38),
+//   disabled-text:   rgba(black, 0.38),
+//   hint-text:       rgba(black, 0.38),
+//   secondary-text:  rgba(black, 0.54),
+//   icon:            rgba(black, 0.54),
+//   icons:           rgba(black, 0.54),
+//   text:            rgba(black, 0.87)
+// );
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$os-primary: mat-palette($mat-blue);
+$os-accent:  mat-palette($mat-amber);
+
+// The warn palette is optional (defaults to red).
+$os-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($os-theme);
+
+.geology-theme {
+  $geology-primary: mat-palette($mat-brown);
+  $geology-accent:  mat-palette($mat-amber);
+  $geology-warn:    mat-palette($mat-red);
+
+  $geology-theme: mat-light-theme($geology-primary, $geology-accent, $geology-warn);
+
+  @include angular-material-theme($geology-theme);
+}

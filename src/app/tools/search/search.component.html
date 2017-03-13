@@ -1,11 +1,11 @@
 <simple-notifications></simple-notifications>
 
-<form class="search" [formGroup]="searchForm" (ngSubmit)="search()">
+<form class="search mat-app-background" [formGroup]="searchForm" (ngSubmit)="search()">
   <md-grid-list cols="2">
     <md-input-container>
       <input mdInput type="text" placeholder="Search for..." formControlName="searchTerm" [(ngModel)]="term" tabindex="0">
     </md-input-container>
-    <button md-raised-button type="submit" [disabled]="!canSubmit()">Go!</button>
+    <button md-raised-button color="primary" type="submit" [disabled]="!canSubmit()">Go!</button>
   </md-grid-list>
 
   <md-list *ngIf="searchResults.length > 0" class="search-list">
