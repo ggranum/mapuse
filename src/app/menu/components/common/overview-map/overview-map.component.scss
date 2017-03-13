@@ -43,3 +43,15 @@ app-overview-map {
 div.ol-overviewmap.ol-unselectable.ol-control {
   position: inherit;
 }
+
+.ol-overviewmap {
+  &.ol-control {
+    position: inherit;
+  }
+
+  &:not(.ol-collapsed) {
+    button {
+      display: none;
+    }
+  }
+}

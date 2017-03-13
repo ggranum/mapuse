@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 
 import { MapService } from './map.service';
 import { ActivatedRoute } from "@angular/router";
@@ -7,6 +7,7 @@ import { ActivatedRoute } from "@angular/router";
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MapComponent implements AfterViewInit {
 

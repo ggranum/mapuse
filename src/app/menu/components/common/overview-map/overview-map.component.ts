@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked/*, ElementRef, Renderer*/ } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 // import { Map, layer, source, control } from 'ol';
 
@@ -8,6 +8,7 @@ import { Component, OnInit, AfterViewChecked/*, ElementRef, Renderer*/ } from '@
   selector: 'app-overview-map',
   templateUrl: './overview-map.component.html',
   styleUrls: ['./overview-map.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class OverviewMapComponent implements OnInit, AfterViewChecked {
 

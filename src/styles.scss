@@ -1,31 +1,3 @@
 // You can add global styles to this file, and also import other style files
 @import './variables.scss';
 @import './themes.scss';
-
-// FIXME: Don't know why but putting this in the components scss file doesn't work,
-// however putting it here does. There are other map related scss that could go here
-// if we can't get it to work properly
-.ol-overviewmap {
-  &.ol-control {
-    position: inherit;
-  }
-
-  &:not(.ol-collapsed) {
-    button {
-      display: none;
-    }
-  }
-}
-
-.ol-zoomslider {
-  color: #fff;
-  background: linear-gradient(
-    to bottom,
-    #5d9634,
-    #5d9634 5px,
-    #538c2b 5px,
-    #538c2b
-  );
-
-  background-size: 100% 10px;
-}
