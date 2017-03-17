@@ -1,3 +1,4 @@
+import { SearchResult } from '../tools/search/search-result';
 export enum DmEventType {
   SEARCH,
   OTHER,
@@ -5,8 +6,7 @@ export enum DmEventType {
 
 export interface DmSearchEvent {
   type: DmEventType.SEARCH;
-  x: number;
-  y: number;
+  searchResult: SearchResult;
 }
 
 export interface DmOtherEvent {

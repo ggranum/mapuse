@@ -1,10 +1,11 @@
+import { DmEventType } from '../../events/event';
+import { EventManagerService } from '../../events/event-manager.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder, FormGroup, Validators,
   // FormBuilder, FormGroup, FormControl, FormControlName, Validators,
 } from '@angular/forms';
 
-import { MapService } from '../../map/map.service';
 import { NotificationsService } from 'angular2-notifications';
 import { SearchService } from './search.service';
 import { SearchResult } from './search-result';
@@ -24,7 +25,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private searchService: SearchService,
-              private mapService: MapService,
+              private eventManager: EventManagerService,
               private notificationsService: NotificationsService) { }
 
   search() {
@@ -50,7 +51,7 @@ export class SearchComponent implements OnInit {
 
   selectResult(result: SearchResult) {
     console.log('Search Result: ', result);
-    this.mapService.setCenter(result.point, result.zoomLevel);
+    this.eventManager.publish(DmEventType.SEARCH, { type: DmEventType.SEARCH, searchResult: result });
   }
 
   /**

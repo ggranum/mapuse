@@ -1,3 +1,5 @@
+import { DmEventType, DmSearchEvent, eventCastingAdapter } from '../events/event';
+import { EventManagerService } from '../events/event-manager.service';
 import { Injectable } from '@angular/core';
 
 // import { Observable } from 'rxjs/Observable';
@@ -38,14 +40,19 @@ proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
 proj.setProj4(proj4);
 
 @Injectable()
-export class MapService implements OnInit {
+export class MapService {
 
   private maps: Map<string, OlMap>;
 
-  constructor(private configService: ConfigService) {
+  constructor(private configService: ConfigService, private eventManager: EventManagerService) {
               // private notificationsService: NotificationsService) {
     // TODO
     this.maps = new Map();
+
+    this.eventManager.subscribe(DmEventType.SEARCH, (e) => {
+      let result = eventCastingAdapter<DmSearchEvent>(e.type, e);
+      this.setCenter(result.searchResult.point, result.searchResult.zoomLevel);
+    });
   }
 
   createMap(name: string, collectionId: string) {
