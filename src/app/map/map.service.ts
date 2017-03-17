@@ -17,12 +17,14 @@ import AttributionControl from 'ol/control/attribution';
 
 import Tile from 'ol/layer/tile';
 import TileWMS from 'ol/source/tilewms';
-import Vector from 'ol/source/vector';
+import VectorSource from 'ol/source/vector';
+import VectorLayer from 'ol/layer/vector';
 import Extent from 'ol/extent';
 import Coordinate from 'ol/coordinate';
 import Feature from 'ol/feature';
-import geom from 'ol/geom/geometry';
-import style from 'ol/style';
+import Point from 'ol/geom/point';
+import Style from 'ol/style/style';
+import Icon from 'ol/style/icon';
 import Overlay from 'ol/overlay';
 import Attribution from 'ol/attribution';
 
@@ -118,14 +120,14 @@ export class MapService implements OnInit {
 
   addMarker(position: Coordinate) {
     let iconFeature = new Feature({
-      geometry: new geom.Point(position),
+      geometry: new Point(position),
       name: 'Null Island',
       population: 4000,
       rainfall: 500,
     });
 
-    let iconStyle = new style.Style({
-      image: new style.Icon(/** @type {olx.style.IconOptions} */ ({
+    let iconStyle = new Style({
+      image: new Icon(/** @type {olx.style.IconOptions} */ ({
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
@@ -137,11 +139,11 @@ export class MapService implements OnInit {
 
     iconFeature.setStyle(iconStyle);
 
-    let vectorSource = new Vector({
+    let vectorSource = new VectorSource({
       features: [iconFeature],
     });
 
-    let vectorLayer = new Vector({
+    let vectorLayer = new VectorLayer({
       source: vectorSource,
     });
     let map = this.maps.get('mainmap');
