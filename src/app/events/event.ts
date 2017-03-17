@@ -21,5 +21,5 @@ export function eventCastingAdapter<T extends DmEvent>(type: DmEventType, event:
     return event as T;
   }
 
-  throw `Event type ${event.type} does not match requested type ${type}`;
+  throw `Event type ${DmEventType[event.type]} does not match requested type ${DmEventType[type]}`;
 }

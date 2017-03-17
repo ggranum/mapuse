@@ -25,7 +25,7 @@ export class EventManagerService {
     let eventListener = this.eventListeners.get(eventType);
 
     if (!eventListener) {
-      console.warn(`No listeners for event ${eventType.toString}`);
+      console.warn(`No listeners for event ${DmEventType[eventType]}`);
       return;
     }
 
