@@ -1,4 +1,6 @@
-import { Injectable, OnInit } from '@angular/core';
+import { DmEventType, DmSearchEvent, eventCastingAdapter } from '../events/event';
+import { EventManagerService } from '../events/event-manager.service';
+import { Injectable } from '@angular/core';
 
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/of';
@@ -17,12 +19,14 @@ import AttributionControl from 'ol/control/attribution';
 
 import Tile from 'ol/layer/tile';
 import TileWMS from 'ol/source/tilewms';
-import Vector from 'ol/source/vector';
+import VectorSource from 'ol/source/vector';
+import VectorLayer from 'ol/layer/vector';
 import Extent from 'ol/extent';
 import Coordinate from 'ol/coordinate';
 import Feature from 'ol/feature';
-import geom from 'ol/geom/geometry';
-import style from 'ol/style';
+import Point from 'ol/geom/point';
+import Style from 'ol/style/style';
+import Icon from 'ol/style/icon';
 import Overlay from 'ol/overlay';
 import Attribution from 'ol/attribution';
 
@@ -36,14 +40,19 @@ proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
 proj.setProj4(proj4);
 
 @Injectable()
-export class MapService implements OnInit {
+export class MapService {
 
   private maps: Map<string, OlMap>;
 
-  constructor(private configService: ConfigService) {
+  constructor(private configService: ConfigService, private eventManager: EventManagerService) {
               // private notificationsService: NotificationsService) {
     // TODO
     this.maps = new Map();
+
+    this.eventManager.subscribe(DmEventType.SEARCH, (e) => {
+      let result = eventCastingAdapter<DmSearchEvent>(e.type, e);
+      this.setCenter(result.searchResult.point, result.searchResult.zoomLevel);
+    });
   }
 
   createMap(name: string, collectionId: string) {
@@ -118,14 +127,14 @@ export class MapService implements OnInit {
 
   addMarker(position: Coordinate) {
     let iconFeature = new Feature({
-      geometry: new geom.Point(position),
+      geometry: new Point(position),
       name: 'Null Island',
       population: 4000,
       rainfall: 500,
     });
 
-    let iconStyle = new style.Style({
-      image: new style.Icon(/** @type {olx.style.IconOptions} */ ({
+    let iconStyle = new Style({
+      image: new Icon(/** @type {olx.style.IconOptions} */ ({
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
@@ -137,11 +146,11 @@ export class MapService implements OnInit {
 
     iconFeature.setStyle(iconStyle);
 
-    let vectorSource = new Vector({
+    let vectorSource = new VectorSource({
       features: [iconFeature],
     });
 
-    let vectorLayer = new Vector({
+    let vectorLayer = new VectorLayer({
       source: vectorSource,
     });
     let map = this.maps.get('mainmap');
@@ -229,9 +238,4 @@ export class MapService implements OnInit {
 
     return layers;
   }
-
-  ngOnInit() {
-    // this.maps = new Map();
-  }
-
 }
