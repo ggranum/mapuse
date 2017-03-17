@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/of';
@@ -229,9 +229,4 @@ export class MapService implements OnInit {
 
     return layers;
   }
-
-  ngOnInit() {
-    // this.maps = new Map();
-  }
-
 }
