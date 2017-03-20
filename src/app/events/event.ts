@@ -4,22 +4,20 @@ export enum DmEventType {
   OTHER,
 }
 
-export interface DmSearchEvent {
+export class DmSearchEvent {
   type: DmEventType.SEARCH;
   searchResult: SearchResult;
+  constructor() {
+    this.type = DmEventType.SEARCH;
+  }
 }
 
-export interface DmOtherEvent {
+export class DmOtherEvent {
   type: DmEventType.OTHER;
   z: number;
+  constructor() {
+    this.type = DmEventType.OTHER;
+  }
 }
 
 export type DmEvent = DmSearchEvent | DmOtherEvent;
-
-export function eventCastingAdapter<T extends DmEvent>(type: DmEventType, event: DmEvent): T {
-  if (event.type === type) {
-    return event as T;
-  }
-
-  throw `Event type ${DmEventType[event.type]} does not match requested type ${DmEventType[type]}`;
-}
