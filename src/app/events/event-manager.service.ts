@@ -10,22 +10,23 @@ export class EventManagerService {
     this.eventListeners = new Map();
   }
 
-  subscribe(eventType: DmEventType, callback: (payload: DmEvent) => void): any {
-    let eventListener = this.eventListeners.get(eventType);
+  subscribe<T extends DmEvent>(eventType: { new(): T }, callback: (payload: T) => void): any {
+    let eventTypeKey = new eventType().type;
 
+    let eventListener = this.eventListeners.get(eventTypeKey);
     if (!eventListener) {
       eventListener = new EventEmitter<DmEvent>();
-      this.eventListeners.set(eventType, eventListener);
+      this.eventListeners.set(eventTypeKey, eventListener);
     }
 
     return eventListener.subscribe(callback);
   }
 
-  publish(eventType: DmEventType, payload: DmEvent): void {
-    let eventListener = this.eventListeners.get(eventType);
+  publish(payload: DmEvent): void {
+    let eventListener = this.eventListeners.get(payload.type);
 
     if (!eventListener) {
-      console.warn(`No listeners for event ${DmEventType[eventType]}`);
+      console.warn(`No listeners for event ${DmEventType[payload.type]}`);
       return;
     }
 

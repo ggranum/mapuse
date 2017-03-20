@@ -1,4 +1,4 @@
-import { DmEventType, DmSearchEvent, eventCastingAdapter } from '../events/event';
+import { DmSearchEvent } from '../events/event';
 import { EventManagerService } from '../events/event-manager.service';
 import { Injectable } from '@angular/core';
 
@@ -49,9 +49,8 @@ export class MapService {
     // TODO
     this.maps = new Map();
 
-    this.eventManager.subscribe(DmEventType.SEARCH, (e) => {
-      let result = eventCastingAdapter<DmSearchEvent>(e.type, e);
-      this.setCenter(result.searchResult.point, result.searchResult.zoomLevel);
+    this.eventManager.subscribe<DmSearchEvent>(DmSearchEvent, (e) => {
+      this.setCenter(e.searchResult.point, e.searchResult.zoomLevel);
     });
   }
 
