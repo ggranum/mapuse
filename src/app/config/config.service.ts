@@ -8,10 +8,7 @@ import { MapConfig } from './map';
 @Injectable()
 export class ConfigService {
 
-  private mapConfig: MapConfig;
-
-  constructor(mapConfig: MapConfig) {
-    this.mapConfig = mapConfig;
+  constructor(private mapConfig: MapConfig) {
   }
 
   getMapConfig(collection: string): Observable<MapConfig> {
