@@ -12,6 +12,17 @@
       "url": "http://localhost:4200/*",
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${webRoot}/*"
+      }
+    }, {
+      "type": "chrome",
+      "request": "launch",
+      "port": 9223,
+      "name": "Launch Chrome",
+      "url": "http://localhost:4200/map/os",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
       "userDataDir": "/tmp/chrome-testing",
       "sourceMapPathOverrides": {
         "webpack:///./*": "${webRoot}/*"
