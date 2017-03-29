@@ -21,13 +21,11 @@
         "styles.scss",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/ol/ol.css",
-        "../node_modules/dragula/dist/dragula.css",
         "../node_modules/@covalent/core/common/platform.scss"
       ],
       "scripts": [
         "../node_modules/hammerjs/hammer.min.js",
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/dragula/dist/dragula.js"
+        "../node_modules/jquery/dist/jquery.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -38,9 +36,6 @@
   ],
   "addons": [
     "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
-  ],
-  "packages": [
-    "../node_modules/ng2-dragula"
   ],
   "e2e": {
     "protractor": {
