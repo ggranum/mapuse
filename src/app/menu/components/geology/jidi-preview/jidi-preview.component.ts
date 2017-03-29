@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-jidi-preview',
+  selector: 'dm-jidi-preview',
   templateUrl: './jidi-preview.component.html',
   styleUrls: ['./jidi-preview.component.scss']
 })

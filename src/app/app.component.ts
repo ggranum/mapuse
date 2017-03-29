@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'dm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

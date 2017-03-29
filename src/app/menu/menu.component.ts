@@ -5,7 +5,7 @@ import { ConfigService } from '../config/config.service';
 import { MenuItem } from '../config/map';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'dm-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })

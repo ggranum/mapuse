@@ -10,7 +10,7 @@ import Stroke from 'ol/style/stroke';
 import { MapService } from '../../../../../map/map.service';
 
 @Component({
-  selector: 'app-draw-line',
+  selector: 'dm-draw-line',
   templateUrl: './draw-line.component.html',
   styleUrls: ['./draw-line.component.scss'],
 })

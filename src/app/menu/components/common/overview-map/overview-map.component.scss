@@ -1,4 +1,4 @@
-app-overview-map {
+dm-overview-map {
   &.ol-overviewmap {
     position: inherit;
   }
@@ -12,7 +12,7 @@ app-overview-map {
   position: inherit;
 }
 
-.app-overview-map {
+.dm-overview-map {
   position: inherit;
 
   &.ol-overviewmap {
@@ -36,7 +36,7 @@ app-overview-map {
   position: inherit;
 }
 
-.app-overview-map:after {
+.dm-overview-map:after {
   position: inherit;
 }
 

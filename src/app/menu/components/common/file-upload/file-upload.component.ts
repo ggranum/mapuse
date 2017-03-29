@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from './file-upload.service';
 
 @Component({
-  selector: 'app-file-upload',
+  selector: 'dm-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
 })

@@ -4,7 +4,7 @@ import { MapService } from './map.service';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-map',
+  selector: 'dm-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
   encapsulation: ViewEncapsulation.None,

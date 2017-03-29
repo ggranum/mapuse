@@ -2,7 +2,7 @@ import { MenuItem } from '../config/map';
 import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
-  selector: 'app-menu-item',
+  selector: 'dm-menu-item',
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.scss']
 })

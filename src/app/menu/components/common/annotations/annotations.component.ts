@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-annotations',
+  selector: 'dm-annotations',
   templateUrl: './annotations.component.html',
   styleUrls: ['./annotations.component.scss']
 })

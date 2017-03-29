@@ -5,7 +5,7 @@ import { AfterViewChecked, Component, OnInit, ViewEncapsulation } from '@angular
 // import { MapService } from '../../../map/map.service';
 
 @Component({
-  selector: 'app-overview-map',
+  selector: 'dm-overview-map',
   templateUrl: './overview-map.component.html',
   styleUrls: ['./overview-map.component.scss'],
   encapsulation: ViewEncapsulation.None,

@@ -8,7 +8,7 @@ import Draw from 'ol/interaction/draw';
 import { MapService } from '../../../../../map/map.service';
 
 @Component({
-  selector: 'app-polygon',
+  selector: 'dm-polygon',
   templateUrl: './polygon.component.html',
   styleUrls: ['./polygon.component.scss'],
 })
