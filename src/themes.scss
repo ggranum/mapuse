@@ -1,4 +1,5 @@
 @import '~@angular/material/core/theming/all-theme';
+@import '~@covalent/core/theming/all-theme';
 // Plus imports for other components in your app.
 
 // Can override both foreground and background below if required
@@ -61,6 +62,7 @@ $os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($os-theme);
+@include covalent-theme($os-theme);
 
 .geology-theme {
   $geology-background: (
@@ -95,4 +97,5 @@ $os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
   $geology-theme: dm-light-theme($geology-primary, $geology-accent, $geology-warn, $geology-foreground, $geology-background);
 
   @include angular-material-theme($geology-theme);
+  @include covalent-theme($geology-theme);
 }

@@ -1,5 +1,8 @@
-<button md-raised-button>
-  Browse <input type="file">
-</button>
+Selected file:
 
-<button md-raised-button color="primary" (click)="upload()">Upload</button>
+<td-file-upload #singleFileUpload>
+  <md-icon>file_upload</md-icon><span>File name</span>
+  <template td-file-input-label>
+    <md-icon>attach_file</md-icon><span>Choose a file...</span>
+  </template>
+</td-file-upload>

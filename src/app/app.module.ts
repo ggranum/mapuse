@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { CovalentCoreModule } from '@covalent/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +21,7 @@ import { AppComponent } from './app.component';
     LayoutModule,
     AppRoutingModule,
     MaterialModule,
+    CovalentCoreModule.forRoot(),
   ],
   providers: [EventManagerService],
   bootstrap: [AppComponent],

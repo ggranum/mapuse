@@ -6,12 +6,14 @@ import { AnnotationsModule } from './annotations/annotations.module';
 import { OverviewMapComponent } from './overview-map/overview-map.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MaterialModule } from "@angular/material";
+import { CovalentCoreModule } from "@covalent/core";
 
 @NgModule({
   imports: [
     CommonModule,
     AnnotationsModule,
     MaterialModule,
+    CovalentCoreModule,
   ],
   declarations: [
     OverviewMapComponent,
