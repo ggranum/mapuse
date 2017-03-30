@@ -1,3 +1,4 @@
+import { MyMapsService } from './my-maps/my-maps.service';
 import { FileUploadService } from './file-upload/file-upload.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,6 +8,8 @@ import { OverviewMapComponent } from './overview-map/overview-map.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MaterialModule } from "@angular/material";
 import { CovalentCoreModule } from "@covalent/core";
+import { MyMapsListComponent } from './my-maps/my-maps-list.component';
+import { MyMapsOpenComponent } from './my-maps/my-maps-open.component';
 
 @NgModule({
   imports: [
@@ -18,11 +21,15 @@ import { CovalentCoreModule } from "@covalent/core";
   declarations: [
     OverviewMapComponent,
     FileUploadComponent,
+    MyMapsListComponent,
+    MyMapsOpenComponent,
   ],
   entryComponents: [
     OverviewMapComponent,
     FileUploadComponent,
+    MyMapsListComponent,
+    MyMapsOpenComponent,
   ],
-  providers: [FileUploadService],
+  providers: [FileUploadService, MyMapsService],
 })
 export class MenuCommonModule { }

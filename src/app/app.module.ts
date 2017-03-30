@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventManagerService } from './events/event-manager.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { CovalentCoreModule } from '@covalent/core';
     AppRoutingModule,
     MaterialModule,
     CovalentCoreModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [EventManagerService],
   bootstrap: [AppComponent],

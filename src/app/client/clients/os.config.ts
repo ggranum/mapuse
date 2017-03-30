@@ -1,6 +1,7 @@
 import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
 import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
 import { MapConfig } from '../../config/map';
+import { MyMapsOpenComponent } from "../../menu/components/common/my-maps/my-maps-open.component";
 
 export const OS_CONFIG: MapConfig = {
   id: 'os',
@@ -35,6 +36,10 @@ export const OS_CONFIG: MapConfig = {
     {
       title: 'Overview Map',
       type: OverviewMapComponent,
+    },
+    {
+      title: 'My Maps',
+      type: MyMapsOpenComponent,
     },
   ],
 };
