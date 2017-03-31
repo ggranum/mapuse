@@ -1,3 +1,4 @@
+import { MyMapsOpenComponent } from '../../menu/components/common/my-maps/my-maps-open.component';
 import { AnnotationsComponent } from '../../menu/components/common/annotations/annotations.component';
 import { JidiPreviewComponent } from '../../menu/components/geology/jidi-preview/jidi-preview.component';
 import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
@@ -48,6 +49,10 @@ export const GEOLOGY_CONFIG: MapConfig = {
     {
       title: 'Annotations',
       type: AnnotationsComponent,
+    },
+    {
+      title: 'My Maps',
+      type: MyMapsOpenComponent,
     },
   ],
 };
