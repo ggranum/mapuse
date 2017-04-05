@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CovalentCoreModule } from '@covalent/core';
+import { SearchModule } from "./tools/search/search.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CovalentCoreModule } from '@covalent/core';
   imports: [
     BrowserModule,
     LayoutModule,
+    SearchModule,
     AppRoutingModule,
     MaterialModule,
     CovalentCoreModule.forRoot(),
