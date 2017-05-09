@@ -16,7 +16,7 @@
     "outDir": "../dist/out-tsc",
     "pretty": true,
     "sourceMap": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "target": "es5",
     "typeRoots": [
       "../node_modules/@types"
