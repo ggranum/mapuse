@@ -1,12 +1,18 @@
 .sidenav-menu {
-  position: absolute;
-  top: 5em;
-  left: 5em;
-  z-index: 100;
   background-color: #fff;
   border-radius: 5px;
 }
 
 .roam-sidenav {
   width: 15em;
+}
+
+.tools {
+  position: absolute;
+  z-index: 1;
+}
+
+li {
+  display: inline-block;
+  vertical-align: top;
 }
