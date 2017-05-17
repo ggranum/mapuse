@@ -5,6 +5,7 @@ import { CovalentCoreModule } from '@covalent/core';
 import { LayoutModule } from '../layout/layout.module';
 import { MapModule } from '../map/map.module';
 import { MenuModule } from '../menu/menu.module';
+import { BasemapsModule } from '../tools/basemaps/basemaps.module';
 import { SearchModule } from '../tools/search/search.module';
 import { ClientComponent } from './client.component';
 
@@ -17,6 +18,7 @@ import { ClientComponent } from './client.component';
     MaterialModule,
     MenuModule,
     SearchModule,
+    BasemapsModule,
   ],
   declarations: [ClientComponent],
   exports: [ClientComponent],

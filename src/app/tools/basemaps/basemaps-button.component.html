@@ -1,0 +1,12 @@
+<button md-icon-button (click)="togglePanel()">
+  <md-icon svgIcon="basemaps"></md-icon>
+</button>
+
+<md-grid-list *ngIf="panelVisible" cols="2" rowHeight="fit">
+  <md-grid-tile><img src="assets/thumbnails/MasterMap.png"></md-grid-tile>
+  <md-grid-tile><img src="assets/thumbnails/MasterMapOrig.png"></md-grid-tile>
+  <md-grid-tile><img src="assets/thumbnails/OML.png"></md-grid-tile>
+  <md-grid-tile><img src="assets/thumbnails/VMLPlan.png"></md-grid-tile>
+  <md-grid-tile><img src="assets/thumbnails/Raster25k.png"></md-grid-tile>
+  <md-grid-tile><img src="assets/thumbnails/VMD.png"></md-grid-tile>
+</md-grid-list>

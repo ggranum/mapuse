@@ -13,6 +13,9 @@ export class ClientComponent implements OnInit {
     iconRegistry.addSvgIcon(
         'menu_google',
         sanitizer.bypassSecurityTrustResourceUrl('assets/menu_google.svg'));
+    iconRegistry.addSvgIcon(
+        'basemaps',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/basemaps.svg'));
   }
 
   refreshMap() {
