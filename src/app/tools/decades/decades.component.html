@@ -1,0 +1,31 @@
+<button md-mini-fab (click)="togglePanel()">
+  <md-icon svgIcon="decades"></md-icon>
+</button>
+
+<ul *ngIf="panelVisible">
+  <li>
+    <button md-raised-button>
+      1860s
+    </button>
+  </li>
+  <li>
+    <button md-raised-button>
+      1890s
+    </button>
+  </li>
+  <li>
+    <button md-raised-button>
+      1980s
+    </button>
+  </li>
+  <li>
+    <button md-raised-button>
+      1990s
+    </button>
+  </li>
+  <li>
+    <button md-raised-button>
+      Contemporary
+    </button>
+  </li>
+</ul>

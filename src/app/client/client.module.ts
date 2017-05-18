@@ -1,3 +1,4 @@
+import { DecadesModule } from '../tools/decades/decades.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
@@ -21,6 +22,7 @@ import { ClientComponent } from './client.component';
     SearchModule,
     BasemapsModule,
     BasemapsGoogleModule,
+    DecadesModule,
   ],
   declarations: [ClientComponent],
   exports: [ClientComponent],

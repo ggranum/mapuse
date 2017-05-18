@@ -31,6 +31,9 @@ export class ClientComponent implements OnInit {
     iconRegistry.addSvgIcon(
         'right-arrow',
         sanitizer.bypassSecurityTrustResourceUrl('assets/right-arrow.svg'));
+    iconRegistry.addSvgIcon(
+        'decades',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/decades.svg'));
   }
 
   refreshMap() {
