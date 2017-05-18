@@ -1,0 +1,17 @@
+<button class="basemap" md-raised-button (click)="togglePanel()">
+  <md-icon svgIcon="basemaps"></md-icon> Basemaps <md-icon svgIcon="up-arrow"></md-icon>
+</button>
+
+<div *ngIf="panelVisible">
+  <button md-fab>
+    <md-icon svgIcon="left-arrow"></md-icon>
+  </button>
+  <md-grid-list cols="3" rowHeight="10em;" gutterSize="5">
+    <md-grid-tile><img src="assets/thumbnails/MasterMap.png"></md-grid-tile>
+    <md-grid-tile class="active"><img src="assets/thumbnails/MasterMapOrig.png"></md-grid-tile>
+    <md-grid-tile><img src="assets/thumbnails/OML.png"></md-grid-tile>
+  </md-grid-list>
+  <button md-fab>
+    <md-icon svgIcon="right-arrow"></md-icon>
+  </button>
+</div>

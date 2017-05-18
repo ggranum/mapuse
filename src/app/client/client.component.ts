@@ -9,13 +9,22 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class ClientComponent implements OnInit {
   constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, private mapService: MapService) {
-    // TODO move to something central
+    // TODO move to something central, and use a loop
     iconRegistry.addSvgIcon(
         'menu_google',
         sanitizer.bypassSecurityTrustResourceUrl('assets/menu_google.svg'));
     iconRegistry.addSvgIcon(
         'basemaps',
         sanitizer.bypassSecurityTrustResourceUrl('assets/basemaps.svg'));
+    iconRegistry.addSvgIcon(
+        'up-arrow',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/up-arrow.svg'));
+    iconRegistry.addSvgIcon(
+        'left-arrow',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/left-arrow.svg'));
+    iconRegistry.addSvgIcon(
+        'right-arrow',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/right-arrow.svg'));
   }
 
   refreshMap() {
