@@ -1,3 +1,8 @@
 // You can add global styles to this file, and also import other style files
 @import './variables.scss';
 @import './themes.scss';
+
+button.mat-mini-fab {
+  background-color: #fff; /* background mat variable? */
+  border-radius: 5px;
+}

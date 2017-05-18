@@ -17,6 +17,12 @@ export class ClientComponent implements OnInit {
         'basemaps',
         sanitizer.bypassSecurityTrustResourceUrl('assets/basemaps.svg'));
     iconRegistry.addSvgIcon(
+        'print',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/print.svg'));
+    iconRegistry.addSvgIcon(
+        'query',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/query.svg'));
+    iconRegistry.addSvgIcon(
         'up-arrow',
         sanitizer.bypassSecurityTrustResourceUrl('assets/up-arrow.svg'));
     iconRegistry.addSvgIcon(
