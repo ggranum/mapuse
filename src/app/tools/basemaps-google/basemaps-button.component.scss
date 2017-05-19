@@ -30,3 +30,9 @@ md-grid-tile {
 .active {
   border: red 2px solid;
 }
+
+span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

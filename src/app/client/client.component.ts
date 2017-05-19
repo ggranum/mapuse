@@ -26,6 +26,9 @@ export class ClientComponent implements OnInit {
         'up-arrow',
         sanitizer.bypassSecurityTrustResourceUrl('assets/up-arrow.svg'));
     iconRegistry.addSvgIcon(
+        'down-arrow',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/down-arrow.svg'));
+    iconRegistry.addSvgIcon(
         'left-arrow',
         sanitizer.bypassSecurityTrustResourceUrl('assets/left-arrow.svg'));
     iconRegistry.addSvgIcon(
