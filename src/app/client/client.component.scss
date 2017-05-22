@@ -1,3 +1,14 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100%
+}
+
+md-sidenav-container {
+  flex: 1;
+}
+
 .roam-sidenav {
   width: 15em;
 }

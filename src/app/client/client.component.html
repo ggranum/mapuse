@@ -1,15 +1,15 @@
-<dm-header></dm-header>
+<div class="layout">
+  <dm-header></dm-header>
 
-<md-sidenav-container class="roam-container">
-  <md-sidenav #sidenav class="roam-sidenav" mode="over" (open)="refreshMap()" (close)="refreshMap()">
-    <dm-menu></dm-menu>
-  </md-sidenav>
+  <md-sidenav-container>
+    <md-sidenav #sidenav class="roam-sidenav" mode="over" (open)="refreshMap()" (close)="refreshMap()">
+      <dm-menu></dm-menu>
+    </md-sidenav>
 
-  <div class="roam-sidenav-content">
     <!-- TODO refactor into a tools component -->
     <ul class="tools">
       <li>
-        <button class="sidenav-menu" md-mini-fab (click)="sidenav.toggle()">
+        <button md-mini-fab (click)="sidenav.toggle()">
           <md-icon svgIcon="menu_google"></md-icon>
         </button>
       </li>
@@ -37,7 +37,7 @@
     <dm-basemap-google></dm-basemap-google>
 
     <dm-map></dm-map>
-  </div>
-</md-sidenav-container>
+  </md-sidenav-container>
 
-<dm-footer></dm-footer>
+  <dm-footer></dm-footer>
+</div>
