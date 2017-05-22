@@ -14,7 +14,6 @@ import View from 'ol/view';
 import control from 'ol/control';
 import ZoomSlider from 'ol/control/zoomslider';
 import ScaleLine from 'ol/control/scaleline';
-import MousePosition from 'ol/control/mouseposition';
 import AttributionControl from 'ol/control/attribution';
 
 import Tile from 'ol/layer/tile';
@@ -79,10 +78,6 @@ export class MapService {
           new ZoomSlider(),
           new ScaleLine(),
           new AttributionControl(),
-          new MousePosition({
-            coordinateFormat: Coordinate.createStringXY(4),
-            projection: 'EPSG:27700',
-          }),
         ]),
         layers: layers,
         target: name,

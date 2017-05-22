@@ -3,6 +3,10 @@
 }
 
 .ol-zoom {
+  top: .5em;
+  right: 1em;
+  left: auto;
+
   .ol-zoom-out {
     margin-top: 204px;
   }
@@ -10,7 +14,9 @@
 
 .ol-zoomslider {
   background-color: transparent;
-  top: 2.3em;
+  top: 36px;
+  right: 1em;
+  left: auto;
 }
 
 .ol-touch {
@@ -36,4 +42,8 @@
   );
 
   background-size: 100% 10px;
+}
+
+.ol-attribution {
+  display: none;
 }
