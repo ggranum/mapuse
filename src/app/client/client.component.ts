@@ -12,7 +12,7 @@ export class ClientComponent implements OnInit {
     // TODO move to something central, and use a loop
     iconRegistry.addSvgIcon(
         'menu',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/menu_google.svg'));
+        sanitizer.bypassSecurityTrustResourceUrl('assets/menu.svg'));
     iconRegistry.addSvgIcon(
         'basemaps',
         sanitizer.bypassSecurityTrustResourceUrl('assets/basemaps.svg'));
