@@ -2,20 +2,20 @@
   <md-icon svgIcon="decades"></md-icon>
 </button>
 
-<md-button-toggle-group *ngIf="panelVisible">
-  <md-button-toggle>
+<md-button-toggle-group *ngIf="panelVisible" value="1980">
+  <md-button-toggle value="1860">
     1860s
   </md-button-toggle>
-  <md-button-toggle disabled>
+  <md-button-toggle disabled value="1890">
     1890s
   </md-button-toggle>
-  <md-button-toggle>
+  <md-button-toggle value="1980">
     1980s
   </md-button-toggle>
-  <md-button-toggle>
+  <md-button-toggle value="1990">
     1990s
   </md-button-toggle>
-  <md-button-toggle>
+  <md-button-toggle value="contemporary">
     Contemporary
   </md-button-toggle>
 </md-button-toggle-group>
