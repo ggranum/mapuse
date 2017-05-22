@@ -4,6 +4,10 @@ import { JidiPreviewComponent } from '../../menu/components/geology/jidi-preview
 import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
 import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
 import { MapConfig } from '../../config/map';
+import { BasemapsButtonComponent } from '../../tools/basemaps/basemaps-button.component';
+import { PrintComponent } from '../../tools/print/print.component';
+import { QueryComponent } from '../../tools/query/query.component';
+import { SearchComponent } from '../../tools/search/search.component';
 
 export const GEOLOGY_CONFIG: MapConfig = {
   id: 'geology',
@@ -28,10 +32,16 @@ export const GEOLOGY_CONFIG: MapConfig = {
     opacity: 1,
   }],
   tools: [{
-    id: 'print',
-    name: 'Print',
-    icon: 'print',
+    type: SearchComponent,
+  }, {
+    type:  PrintComponent,
     tooltip: 'Print Map',
+  }, {
+    type:  QueryComponent,
+    tooltip: 'Query Map',
+  }, {
+    type:  BasemapsButtonComponent,
+    tooltip: 'Change Basemap',
   }],
   components: [
     {

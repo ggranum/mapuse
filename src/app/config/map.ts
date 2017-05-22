@@ -20,10 +20,8 @@ export interface MapConfig {
 }
 
 export interface Tool {
-  id: string;
-  name: string;
-  icon: string;
-  tooltip: string;
+  type: Type<Component>;
+  tooltip?: string;
 }
 
 export interface MenuItem {

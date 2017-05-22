@@ -21,6 +21,7 @@ import { MaterialModule } from "@angular/material";
     SimpleNotificationsModule.forRoot(),
   ],
   declarations: [SearchComponent],
+  entryComponents: [SearchComponent],
   providers: [SearchService],
   exports: [SearchComponent],
 })
