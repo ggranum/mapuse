@@ -1,9 +1,13 @@
-md-grid-list {
+md-button-toggle-group {
   position: absolute;
   width: 50vw;
   height: 50vh;
   background-color: #fff;
   border-radius: 5px;
+}
+
+md-grid-list {
+  width: 100%;
 }
 
 md-grid-tile {
