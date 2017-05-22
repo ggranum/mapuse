@@ -11,7 +11,7 @@ export class ClientComponent implements OnInit {
   constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, private mapService: MapService) {
     // TODO move to something central, and use a loop
     iconRegistry.addSvgIcon(
-        'menu_google',
+        'menu',
         sanitizer.bypassSecurityTrustResourceUrl('assets/menu_google.svg'));
     iconRegistry.addSvgIcon(
         'basemaps',
