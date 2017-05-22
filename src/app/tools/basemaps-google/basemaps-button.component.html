@@ -3,27 +3,31 @@
 </button>
 
 <div *ngIf="panelVisible">
-  <button md-fab>
-    <md-icon svgIcon="left-arrow"></md-icon>
-  </button>
-  <md-grid-list cols="3" rowHeight="10em;" gutterSize="5">
-    <md-grid-tile>
+  <md-button-toggle-group value="raster25k">
+    <md-button-toggle value="mastermap">
       <span>
         <img src="assets/thumbnails/MasterMap.png">MasterMap
       </span>
-    </md-grid-tile>
-    <md-grid-tile class="active">
+    </md-button-toggle>
+    <md-button-toggle value="mastermapplan">
       <span>
         <img src="assets/thumbnails/MasterMapOrig.png">MasterMap Plan
       </span>
-    </md-grid-tile>
-    <md-grid-tile>
-      <span>
+    </md-button-toggle>
+    <md-button-toggle value="oml">
+       <span>
         <img src="assets/thumbnails/OML.png">OML
       </span>
-    </md-grid-tile>
-  </md-grid-list>
-  <button md-fab>
-    <md-icon svgIcon="right-arrow"></md-icon>
-  </button>
+    </md-button-toggle>
+    <md-button-toggle class="active" value="raster25k">
+       <span>
+        <img src="assets/thumbnails/Raster25k.png">Raster 25K
+      </span>
+    </md-button-toggle>
+    <md-button-toggle value="gb">
+       <span>
+        <img src="assets/thumbnails/gb.png">GB
+      </span>
+    </md-button-toggle>
+  </md-button-toggle-group>
 </div>
