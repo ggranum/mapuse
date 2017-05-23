@@ -39,15 +39,16 @@ let error = [{
 
 let search = (req, res) =>{
   console.log('SEARCHING for ' + req.query.term);
-  if (req.query.term === 'zero') {
+  let searchTerm = req.query.term.toUpperCase();
+  if (searchTerm === 'ZERO') {
     res.json(noResults);
-  } else if (req.query.term === 'EH9 1PR') {
+  } else if (searchTerm === 'EH9 1PR') {
     res.json(singleResult);
-  } else if (req.query.term === 'multi') {
+  } else if (searchTerm === 'MULTI') {
     res.json(multipleResults);
-  } else if (req.query.term === 'edinburgh') {
+  } else if (searchTerm === 'EDINBURGH') {
     res.json(edinburghResult);
-  } else if (req.query.term === 'error') {
+  } else if (searchTerm === 'ERROR') {
     res.status(400)
     res.json(error);
   } else {
