@@ -52,6 +52,7 @@ export class SearchComponent implements OnInit {
   selectResult(result: SearchResult) {
     console.log('Search Result: ', result);
     this.eventManager.publish({ type: DmEventType.SEARCH, searchResult: result });
+    this.searchResults = [];
   }
 
   /**
