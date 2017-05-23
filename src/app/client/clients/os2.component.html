@@ -1,0 +1,15 @@
+<div class="layout">
+  <dm-header></dm-header>
+
+  <md-sidenav-container>
+    <md-sidenav #sidenav class="roam-sidenav" mode="over" (open)="refreshMap()" (close)="refreshMap()">
+      <dm-menu></dm-menu>
+    </md-sidenav>
+
+    <dm-toolbar (menuEvent)="sidenav.toggle()"></dm-toolbar>
+
+    <dm-map></dm-map>
+  </md-sidenav-container>
+
+  <dm-footer></dm-footer>
+</div>

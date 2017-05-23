@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     let path = this.location.path(false);
     // Extract the last part of the URL path, while filtering off any query parameters.
     // The path is restricted to lower case a-z because all our collections fit into that pattern.
-    let collection = path.match(/.*\/([a-z]+)(\?.*)?/);
+    let collection = path.match(/.*\/([a-z]+\d?)(\?.*)?/);
 
     if (!collection) {
       throw `invalid url - ${path}`;

@@ -1,3 +1,4 @@
+import { BasemapsButtonComponent } from '../../tools/basemaps/basemaps-button.component';
 import { SearchComponent } from '../../tools/search/search.component';
 import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
 import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
@@ -5,8 +6,8 @@ import { MapConfig } from '../../config/map';
 import { MyMapsOpenComponent } from "../../menu/components/common/my-maps/my-maps-open.component";
 import { PrintComponent } from '../../tools/print/print.component';
 
-export const OS_CONFIG: MapConfig = {
-  id: 'os',
+export const OS2_CONFIG: MapConfig = {
+  id: 'os2',
   extent: [-3276800, -3276800, 3276800, 3276800],
   resolutions: [1600, 800, 400, 200, 100, 50, 25, 10, 5, 2.5, 1, 0.5, 0.25, 0.125, 0.0625],
   center: [413674, 289141],
@@ -29,6 +30,9 @@ export const OS_CONFIG: MapConfig = {
   }, {
     type:  PrintComponent,
     tooltip: 'Print Map',
+  }, {
+    type:  BasemapsButtonComponent,
+    tooltip: 'Change Basemap',
   }],
   components: [
     {
