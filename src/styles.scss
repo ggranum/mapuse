@@ -6,3 +6,15 @@ button.mat-mini-fab {
   background-color: #fff; /* background mat variable? */
   border-radius: 5px;
 }
+
+/*
+ * Sadly to get layout to work right in safari and other browsers
+ * I had to add a global style to add flexbox layout to the sidenav
+ * content. Putting div with flex in it wasn't enough, and :host doesn't
+ * work on IE11.
+ */
+div.mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

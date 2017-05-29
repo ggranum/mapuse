@@ -1,5 +1,11 @@
 .map {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ol-viewport {
+  flex: 1;
 }
 
 .ol-zoom {
