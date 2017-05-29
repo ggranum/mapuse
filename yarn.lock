@@ -3767,9 +3767,9 @@ obuf@^1.0.0, obuf@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.1.tgz#104124b6c602c6796881a042541d36db43a5264e"
 
-ol@4.0.1-beta.2:
-  version "4.0.1-beta.2"
-  resolved "https://registry.yarnpkg.com/ol/-/ol-4.0.1-beta.2.tgz#4181c3b6f5358469ea086f4542ff6c029c33e421"
+ol@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/ol/-/ol-4.1.1.tgz#324096d8e01fec1a1ef3782dfae740db06d6d005"
   dependencies:
     pbf "3.0.5"
     pixelworks "1.1.0"
