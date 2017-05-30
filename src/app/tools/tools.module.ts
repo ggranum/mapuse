@@ -27,6 +27,7 @@ import { ToolbarComponent } from './toolbar.component';
   ],
   exports: [
     ToolbarComponent,
+    DecadesComponent,
   ],
   entryComponents: [
     BasemapsButtonComponent,

@@ -4,7 +4,6 @@ import { FileUploadComponent } from '../../menu/components/common/file-upload/fi
 import { MapConfig } from '../../config/map';
 import { MyMapsOpenComponent } from "../../menu/components/common/my-maps/my-maps-open.component";
 import { PrintComponent } from '../../tools/print/print.component';
-import { DecadesComponent } from '../../tools/decades/decades.component';
 
 export const HISTORIC_CONFIG: MapConfig = {
   id: 'historic',
@@ -30,9 +29,6 @@ export const HISTORIC_CONFIG: MapConfig = {
   }, {
     type:  PrintComponent,
     tooltip: 'Print Map',
-  }, {
-    type:  DecadesComponent,
-    tooltip: 'Decades',
   }],
   components: [
     {

@@ -1,5 +1,7 @@
 md-button-toggle-group {
-  position: absolute;
-  z-index: 1;
   background: #fff;
+  width: 100%;
+  overflow: scroll;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
