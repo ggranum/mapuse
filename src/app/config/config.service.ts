@@ -11,7 +11,7 @@ export class ConfigService {
   constructor(private mapConfig: MapConfig) {
   }
 
-  getMapConfig(collection: string): Observable<MapConfig> {
+  getMapConfig(): Observable<MapConfig> {
     return Observable.of(this.mapConfig);
   }
 }

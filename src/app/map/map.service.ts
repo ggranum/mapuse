@@ -53,9 +53,9 @@ export class MapService {
     });
   }
 
-  createMap(name: string, collectionId: string) {
+  createMap(name: string) {
     let config: MapConfig;
-    this.configService.getMapConfig(collectionId).subscribe(collection => {
+    this.configService.getMapConfig().subscribe(collection => {
       config = collection;
       // console.log('CONFIG: ', config);
 
