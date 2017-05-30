@@ -1,3 +1,4 @@
+import { QueryComponent } from '../../tools/query/query.component';
 import { SearchComponent } from '../../tools/search/search.component';
 import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
 import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
@@ -29,6 +30,9 @@ export const HISTORIC_CONFIG: MapConfig = {
   }, {
     type:  PrintComponent,
     tooltip: 'Print Map',
+  }, {
+    type:  QueryComponent,
+    tooltip: 'Query',
   }],
   components: [
     {
