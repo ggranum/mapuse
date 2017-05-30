@@ -1,6 +1,5 @@
 import { EventEmitter } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { ConfigService } from '../config/config.service';
 import { Tool } from '../config/map';
@@ -17,15 +16,14 @@ export class ToolbarComponent implements OnInit {
 
   tools: Tool[];
 
-  constructor(private route: ActivatedRoute, private configService: ConfigService) { }
+  constructor(private configService: ConfigService) { }
 
   menuClick() {
     this.menuEvent.emit();
   }
 
   ngOnInit() {
-    let collectionId = this.route.snapshot.data.collectionId;
-    this.configService.getMapConfig(collectionId).subscribe(mapConfig => {
+    this.configService.getMapConfig().subscribe(mapConfig => {
       this.tools = mapConfig.tools;
     });
   }

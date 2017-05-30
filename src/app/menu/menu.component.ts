@@ -1,4 +1,3 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ConfigService } from '../config/config.service';
@@ -18,7 +17,7 @@ export class MenuComponent implements OnInit {
 
   components: MenuItem[];
 
-  constructor(private route: ActivatedRoute, private configService: ConfigService) { }
+  constructor(private configService: ConfigService) { }
 
   // constructor(private configService: ConfigService,
   //             private polygonService: PolygonService,
@@ -32,8 +31,7 @@ export class MenuComponent implements OnInit {
   // }
 
   ngOnInit() {
-    let collectionId = this.route.snapshot.data.collectionId;
-    this.configService.getMapConfig(collectionId).subscribe(mapConfig => {
+    this.configService.getMapConfig().subscribe(mapConfig => {
       this.components = mapConfig.components;
     });
 

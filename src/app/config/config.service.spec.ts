@@ -13,16 +13,15 @@ describe('Service: Config', () => {
   });
 
   it('should return OS Collection config', inject([ConfigService], (service: ConfigService) => {
-    const collection = 'os';
     expect(service).toBeTruthy();
 
     // Get Observable of OS MapConfig.
-    const config = service.getMapConfig(collection);
+    const config = service.getMapConfig();
     expect(config).toBeDefined();
 
     // Subscribe and verify config is for OS Collection.
     config.subscribe((coll: MapConfig) => {
-      expect(coll.id).toEqual(collection);
+      expect(coll.id).toEqual('os');
     });
   }));
 });
