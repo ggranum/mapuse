@@ -4,39 +4,9 @@
 
 <div class="toolbar-container" *ngIf="panelVisible">
   <md-button-toggle-group value="raster25k">
-    <md-button-toggle value="mastermap">
+    <md-button-toggle *ngFor="let o of overlays" value="{{o.value}}">
       <span>
-        <img src="assets/thumbnails/MasterMap.png">MasterMap
-      </span>
-    </md-button-toggle>
-    <md-button-toggle value="mastermapplan">
-      <span>
-        <img src="assets/thumbnails/MasterMapOrig.png">MasterMap Plan
-      </span>
-    </md-button-toggle>
-    <md-button-toggle value="oml">
-       <span>
-        <img src="assets/thumbnails/OML.png">OML
-      </span>
-    </md-button-toggle>
-    <md-button-toggle class="active" value="raster25k">
-       <span>
-        <img src="assets/thumbnails/Raster25k.png">Raster 25K
-      </span>
-    </md-button-toggle>
-    <md-button-toggle value="gb">
-       <span>
-        <img src="assets/thumbnails/gb.png">GB
-      </span>
-    </md-button-toggle>
-    <md-button-toggle value="vmlplan">
-       <span>
-        <img src="assets/thumbnails/VMLPlan.png">VML Plan
-      </span>
-    </md-button-toggle>
-    <md-button-toggle value="vmd">
-       <span>
-        <img src="assets/thumbnails/VMD.png">VMD
+        <img src="{{o.icon}}">{{o.name}}
       </span>
     </md-button-toggle>
   </md-button-toggle-group>
