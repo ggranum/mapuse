@@ -1,4 +1,4 @@
-@import '~@angular/material/core/theming/all-theme';
+@import '~@angular/material/theming';
 @import '~@covalent/core/theming/all-theme';
 // Plus imports for other components in your app.
 
@@ -65,6 +65,7 @@ $os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
 @include covalent-theme($os-theme);
 
 .geology-theme {
+  // TODO this is probably the wrong way to customise background
   $geology-background: (
     status-bar: map_get($mat-grey, 300),
     app-bar:    map_get($mat-grey, 100),
@@ -74,6 +75,10 @@ $os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
     dialog:     yellow,
     disabled-button: rgba(black, 0.12),
     raised-button: white,
+    focused-button: $black-6-opacity,
+    selected-button: map_get($mat-grey, 300),
+    selected-disabled-button: map_get($mat-grey, 400),
+    disabled-button-toggle: map_get($mat-grey, 200),
   );
 
   $geology-foreground: (
@@ -87,7 +92,9 @@ $os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
     secondary-text:  rgba(black, 0.54),
     icon:            rgba(black, 0.54),
     icons:           rgba(black, 0.54),
-    text:            rgba(black, 0.87)
+    text:            rgba(black, 0.87),
+    slider-off:        rgba(black, 0.26),
+    slider-off-active: rgba(black, 0.38),
   );
 
   $geology-primary: mat-palette($mat-brown);
@@ -99,3 +106,4 @@ $os-theme: mat-light-theme($os-primary, $os-accent, $os-warn);
   @include angular-material-theme($geology-theme);
   @include covalent-theme($geology-theme);
 }
+

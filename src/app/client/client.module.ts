@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
-import { CovalentCoreModule } from '@covalent/core';
 
 import { LayoutModule } from '../layout/layout.module';
 import { MapModule } from '../map/map.module';
@@ -13,7 +12,6 @@ import { ClientComponent } from './client.component';
 @NgModule({
   imports: [
     CommonModule,
-    CovalentCoreModule,
     LayoutModule,
     MapModule,
     MaterialModule,

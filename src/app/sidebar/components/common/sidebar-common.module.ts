@@ -7,7 +7,7 @@ import { AnnotationsModule } from './annotations/annotations.module';
 import { OverviewMapComponent } from './overview-map/overview-map.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MaterialModule } from "@angular/material";
-import { CovalentCoreModule } from "@covalent/core";
+import { CovalentFileModule, CovalentDataTableModule } from '@covalent/core';
 import { ListComponent } from './list/list.component';
 import { MyMapsListComponent } from './my-maps/my-maps-list.component';
 import { MyMapsOpenComponent } from './my-maps/my-maps-open.component';
@@ -17,7 +17,8 @@ import { MyMapsOpenComponent } from './my-maps/my-maps-open.component';
     CommonModule,
     AnnotationsModule,
     MaterialModule,
-    CovalentCoreModule,
+    CovalentFileModule,
+    CovalentDataTableModule,
   ],
   declarations: [
     OverviewMapComponent,

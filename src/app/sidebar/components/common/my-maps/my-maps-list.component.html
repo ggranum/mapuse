@@ -4,24 +4,24 @@
   <td-data-table [data]="mapData" [columns]="columns"
                  [sortBy]="date" [sortOrder]="DESC"
                  (sortChange)="sort($event)">
-    <template tdDataTableTemplate="open" let-value="value" let-row="row" let-column="column">
+    <ng-template tdDataTableTemplate="open" let-value="value" let-row="row" let-column="column">
       <button md-mini-fab color="primary" (click)="openMyMap(row.id)">
         <md-icon>open_in_browser</md-icon>
       </button>
-    </template>
-    <template tdDataTableTemplate="annotations" let-value="value" let-row="row" let-column="column">
+    </ng-template>
+    <ng-template tdDataTableTemplate="annotations" let-value="value" let-row="row" let-column="column">
       <div layout="row">
         <md-icon *ngIf="value">check</md-icon>
       </div>
-    </template>
-    <template tdDataTableTemplate="date" let-value="value" let-row="row" let-column="column">
+    </ng-template>
+    <ng-template tdDataTableTemplate="date" let-value="value" let-row="row" let-column="column">
       {{ value | date:'d/MM/yy' }}
-    </template>
-    <template tdDataTableTemplate="delete" let-value="value" let-row="row" let-column="column">
+    </ng-template>
+    <ng-template tdDataTableTemplate="delete" let-value="value" let-row="row" let-column="column">
       <button md-mini-fab color="warn" (click)="deleteMyMap(row.id)">
         <md-icon>delete</md-icon>
       </button>
-    </template>
+    </ng-template>
   </td-data-table>
 </md-dialog-content>
 

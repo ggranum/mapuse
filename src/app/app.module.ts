@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { CovalentCoreModule } from '@covalent/core';
+import { CovalentFileModule, CovalentDataTableModule } from '@covalent/core';
 import { SearchModule } from "./tools/search/search.module";
 
 @NgModule({
@@ -24,7 +24,8 @@ import { SearchModule } from "./tools/search/search.module";
     SearchModule,
     AppRoutingModule,
     MaterialModule,
-    CovalentCoreModule.forRoot(),
+    CovalentFileModule,
+    CovalentDataTableModule,
     BrowserAnimationsModule,
   ],
   providers: [EventManagerService],
