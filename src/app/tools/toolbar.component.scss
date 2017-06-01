@@ -3,7 +3,7 @@
   z-index: 1;
   white-space: nowrap;
 
-  width: calc(100vw - 75px); /* The 75px is the rough width of the scalebar */
+  width: calc(100% - 75px); /* The 75px is the rough width of the scalebar */
   margin: 16px 0;
   padding: 0;
 }
