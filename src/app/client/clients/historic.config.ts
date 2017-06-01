@@ -1,9 +1,9 @@
 import { QueryComponent } from '../../tools/query/query.component';
 import { SearchComponent } from '../../tools/search/search.component';
-import { OverviewMapComponent } from '../../menu/components/common/overview-map/overview-map.component';
-import { FileUploadComponent } from '../../menu/components/common/file-upload/file-upload.component';
+import { OverviewMapComponent } from '../../sidebar/components/common/overview-map/overview-map.component';
+import { FileUploadComponent } from '../../sidebar/components/common/file-upload/file-upload.component';
 import { MapConfig } from '../../config/map';
-import { MyMapsOpenComponent } from "../../menu/components/common/my-maps/my-maps-open.component";
+import { MyMapsOpenComponent } from "../../sidebar/components/common/my-maps/my-maps-open.component";
 import { PrintComponent } from '../../tools/print/print.component';
 
 export const HISTORIC_CONFIG: MapConfig = {

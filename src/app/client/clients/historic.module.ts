@@ -5,7 +5,7 @@ import { ConfigService, configServiceFactory } from '../../config/config.service
 import { LayoutModule } from '../../layout/layout.module';
 import { MapModule } from '../../map/map.module';
 import { MapService } from '../../map/map.service';
-import { MenuModule } from '../../menu/menu.module';
+import { SidebarModule } from '../../sidebar/sidebar.module';
 import { ToolsModule } from '../../tools/tools.module';
 import { ClientModule } from '../client.module';
 import { HistoricRoutingModule } from './historic-routing.module';
@@ -18,7 +18,7 @@ import { HISTORIC_CONFIG } from './historic.config';
     CommonModule,
     ClientModule,
     LayoutModule,
-    MenuModule,
+    SidebarModule,
     MapModule,
     MaterialModule,
     ToolsModule,

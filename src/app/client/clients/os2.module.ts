@@ -1,5 +1,5 @@
 import { MapModule } from '../../map/map.module';
-import { MenuModule } from '../../menu/menu.module';
+import { SidebarModule } from '../../sidebar/sidebar.module';
 import { Os2Component } from './os2.component';
 import { OS2_CONFIG } from './os2.config';
 import { MapService } from '../../map/map.service';
@@ -18,7 +18,7 @@ import { ToolsModule } from "../../tools/tools.module";
     CommonModule,
     ClientModule,
     LayoutModule,
-    MenuModule,
+    SidebarModule,
     MapModule,
     MaterialModule,
     ToolsModule,

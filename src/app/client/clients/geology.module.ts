@@ -1,4 +1,4 @@
-import { MenuGeologyModule } from '../../menu/components/geology/menu-geology.module';
+import { SidebarGeologyModule } from '../../sidebar/components/geology/Sidebar-geology.module';
 import { GEOLOGY_CONFIG } from './geology.config';
 import { MapService } from '../../map/map.service';
 import { ConfigService, configServiceFactory } from '../../config/config.service';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
     GeologyRoutingModule,
     CommonModule,
     ClientModule,
-    MenuGeologyModule,
+    SidebarGeologyModule,
   ],
   providers: [configServiceFactory(geologyConfigFactory), MapService],
 })

@@ -13,4 +13,4 @@ import { CommonModule } from '@angular/common';
     JidiPreviewComponent,
   ],
 })
-export class MenuGeologyModule { }
+export class SidebarGeologyModule { }

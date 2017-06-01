@@ -5,7 +5,7 @@ import { CovalentCoreModule } from '@covalent/core';
 
 import { LayoutModule } from '../layout/layout.module';
 import { MapModule } from '../map/map.module';
-import { MenuModule } from '../menu/menu.module';
+import { SidebarModule } from '../sidebar/sidebar.module';
 import { BasemapsModule as BasemapsGoogleModule } from '../tools/basemaps-google/basemaps.module';
 import { ToolsModule } from '../tools/tools.module';
 import { ClientComponent } from './client.component';
@@ -17,7 +17,7 @@ import { ClientComponent } from './client.component';
     LayoutModule,
     MapModule,
     MaterialModule,
-    MenuModule,
+    SidebarModule,
     BasemapsGoogleModule,
     ToolsModule,
   ],
