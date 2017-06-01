@@ -1,4 +1,4 @@
-import { SidebarGeologyModule } from '../../sidebar/components/geology/Sidebar-geology.module';
+import { SidebarGeologyModule } from '../../sidebar/components/geology/sidebar-geology.module';
 import { GEOLOGY_CONFIG } from './geology.config';
 import { MapService } from '../../map/map.service';
 import { ConfigService, configServiceFactory } from '../../config/config.service';
