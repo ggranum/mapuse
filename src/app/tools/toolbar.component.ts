@@ -2,7 +2,7 @@ import { EventEmitter } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
 
 import { ConfigService } from '../config/config.service';
-import { Tool } from '../config/map';
+import { Tool } from '../config/client-config';
 
 @Component({
   selector: 'dm-toolbar',

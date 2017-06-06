@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { MenuItem } from '../config/map';
+import { MenuItem } from '../config/client-config';
 import { ListComponent } from './components/common/list/list.component';
 
 @Injectable()

@@ -29,8 +29,10 @@ import Icon from 'ol/style/icon';
 import Overlay from 'ol/overlay';
 import Attribution from 'ol/attribution';
 
-import { MapConfig, Layer } from '../config/map';
-import { ConfigService } from '../config/config.service';
+import { MapConfig, Layer } from './map';
+import { MapConfigService } from "./map-config.service";
+
+//import { ConfigService } from '../config/config.service';
 // import { NotificationsService } from '../notifications/notifications.service';
 
 proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
@@ -43,7 +45,7 @@ export class MapService {
 
   private maps: Map<string, OlMap>;
 
-  constructor(private configService: ConfigService, private eventManager: EventManagerService) {
+  constructor(private mapConfigService: MapConfigService, private eventManager: EventManagerService) {
               // private notificationsService: NotificationsService) {
     // TODO
     this.maps = new Map();
@@ -53,11 +55,11 @@ export class MapService {
     });
   }
 
-  createMap(name: string) {
-    let config: MapConfig;
-    this.configService.getMapConfig().subscribe(collection => {
-      config = collection;
-      // console.log('CONFIG: ', config);
+  createMap(elementId: string, collectionId: string): void {
+    console.log('elementId: ' + elementId);
+
+    this.mapConfigService.getMapConfig(collectionId).subscribe((config: MapConfig) => {
+      console.log('CONFIG: ', config);
 
       let extent: Extent = [0, 0, 700000, 1300000];
       let projection = proj.get(config.crs.code);
@@ -80,7 +82,7 @@ export class MapService {
           new AttributionControl(),
         ]),
         layers: layers,
-        target: name,
+        target: elementId,
         view: new View({
           projection: projection,
           center: config.center, // FIXME: See above.
@@ -89,11 +91,8 @@ export class MapService {
         }),
       });
 
-      this.maps.set(name, map);
+      this.maps.set(collectionId, map);
     });
-
-    // return map;
-    // return Observable.of(map);
   }
 
   refreshMaps() {

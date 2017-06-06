@@ -1,5 +1,5 @@
 import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { Tool } from '../config/map';
+import { Tool } from '../config/client-config';
 
 @Component({
   selector: 'dm-tool-item',

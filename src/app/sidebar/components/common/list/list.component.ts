@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../../../sidebar.service';
 
 import { ConfigService } from '../../../../config/config.service';
-import { MenuItem } from '../../../../config/map';
+import { MenuItem } from '../../../../config/client-config';
 
 @Component({
   templateUrl: './list.component.html',

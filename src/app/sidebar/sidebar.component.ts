@@ -1,6 +1,6 @@
 import { SidebarService } from './sidebar.service';
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from '../config/map';
+import { MenuItem } from '../config/client-config';
 
 @Component({
   selector: 'dm-sidebar-container',

@@ -1,6 +1,6 @@
 import { ComponentRef } from '@angular/core/core';
 import { SidebarService } from './sidebar.service';
-import { MenuItem } from '../config/map';
+import { MenuItem } from '../config/client-config';
 import { Component, Type, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewChildren, ViewContainerRef, QueryList } from '@angular/core';
 
 @Component({
