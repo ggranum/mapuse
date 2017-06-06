@@ -3,6 +3,7 @@ import { SearchComponent } from '../../tools/search/search.component';
 import { OverviewMapComponent } from '../../sidebar/components/common/overview-map/overview-map.component';
 import { FileUploadComponent } from '../../sidebar/components/common/file-upload/file-upload.component';
 import { MapConfig } from '../../config/map';
+import { BasemapsButtonComponent } from '../../tools/basemaps/basemaps-button.component';
 import { PrintComponent } from '../../tools/print/print.component';
 
 export const OS_CONFIG: MapConfig = {
@@ -29,6 +30,9 @@ export const OS_CONFIG: MapConfig = {
   }, {
     type:  PrintComponent,
     tooltip: 'Print Map',
+  }, {
+    type:  BasemapsButtonComponent,
+    tooltip: 'Change Basemap',
   }],
   components: [
     {
