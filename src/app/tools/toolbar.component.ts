@@ -23,8 +23,8 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.configService.getMapConfig().subscribe(mapConfig => {
-      this.tools = mapConfig.tools;
+    this.configService.getClientConfig().subscribe(clientConfig => {
+      this.tools = clientConfig.tools;
     });
   }
 }

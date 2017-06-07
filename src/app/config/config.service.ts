@@ -3,16 +3,16 @@ import { FactoryProvider, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { MapConfig } from './map';
+import { ClientConfig } from './map';
 
 @Injectable()
 export class ConfigService {
 
-  constructor(private mapConfig: MapConfig) {
+  constructor(private clientConfig: ClientConfig) {
   }
 
-  getMapConfig(): Observable<MapConfig> {
-    return Observable.of(this.mapConfig);
+  getClientConfig(): Observable<ClientConfig> {
+    return Observable.of(this.clientConfig);
   }
 }
 

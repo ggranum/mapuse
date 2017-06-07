@@ -19,8 +19,8 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.configService.getMapConfig().subscribe(mapConfig => {
-      this.components = mapConfig.components;
+    this.configService.getClientConfig().subscribe(clientConfig => {
+      this.components = clientConfig.components;
     });
   }
 }

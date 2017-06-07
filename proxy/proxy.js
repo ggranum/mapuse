@@ -13,6 +13,7 @@ var morgan     = require('morgan');
 var search     = require('./api/search.js');
 var print      = require('./api/print.js');
 var gfi        = require('./api/gfi.js');
+var mapconfig  = require('./api/mapconfig.js');
 
 // configure app
 app.use(morgan('dev')); // log requests to the console
@@ -47,6 +48,7 @@ router.get('/', function(req, res) {
 router.get('/search', search.search);
 router.get('/gfi', gfi.gfi);
 router.route('/print').post(print.print);
+router.get('/config/map/:mapId', mapconfig.getMapConfig);
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', router);

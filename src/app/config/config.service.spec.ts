@@ -3,7 +3,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ConfigService } from './config.service';
-import { MapConfig } from './map';
+import { ClientConfig } from './map';
 
 describe('Service: Config', () => {
   beforeEach(() => {
@@ -16,11 +16,11 @@ describe('Service: Config', () => {
     expect(service).toBeTruthy();
 
     // Get Observable of OS MapConfig.
-    const config = service.getMapConfig();
+    const config = service.getClientConfig();
     expect(config).toBeDefined();
 
     // Subscribe and verify config is for OS Collection.
-    config.subscribe((coll: MapConfig) => {
+    config.subscribe((coll: ClientConfig) => {
       expect(coll.id).toEqual('os');
     });
   }));
