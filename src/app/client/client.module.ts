@@ -7,6 +7,7 @@ import { MapModule } from '../map/map.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { ToolsModule } from '../tools/tools.module';
 import { ClientComponent } from './client.component';
+import { ConfigModule } from '../config/config.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ClientComponent } from './client.component';
     MaterialModule,
     SidebarModule,
     ToolsModule,
+    ConfigModule
   ],
   declarations: [ClientComponent],
   exports: [ClientComponent],

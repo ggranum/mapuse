@@ -2,8 +2,8 @@ import { DmSearchEvent } from '../events/event';
 import { EventManagerService } from '../events/event-manager.service';
 import { Injectable } from '@angular/core';
 
-// import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 import proj4 from 'proj4';
 
@@ -29,8 +29,8 @@ import Icon from 'ol/style/icon';
 import Overlay from 'ol/overlay';
 import Attribution from 'ol/attribution';
 
+import { MapConfigService } from '../config/map-config.service';
 import { MapConfig, Layer } from '../config/map';
-import { ConfigService } from '../config/config.service';
 // import { NotificationsService } from '../notifications/notifications.service';
 
 proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
@@ -43,7 +43,7 @@ export class MapService {
 
   private maps: Map<string, OlMap>;
 
-  constructor(private configService: ConfigService, private eventManager: EventManagerService) {
+  constructor(private mapConfigService: MapConfigService, private eventManager: EventManagerService) {
               // private notificationsService: NotificationsService) {
     // TODO
     this.maps = new Map();
@@ -53,10 +53,8 @@ export class MapService {
     });
   }
 
-  createMap(name: string) {
-    let config: MapConfig;
-    this.configService.getMapConfig().subscribe(collection => {
-      config = collection;
+  createMap(): Observable<OlMap> {
+    return this.mapConfigService.getMapConfig().map((config: MapConfig) => {
       // console.log('CONFIG: ', config);
 
       let extent: Extent = [0, 0, 700000, 1300000];
@@ -80,7 +78,6 @@ export class MapService {
           new AttributionControl(),
         ]),
         layers: layers,
-        target: name,
         view: new View({
           projection: projection,
           center: config.center, // FIXME: See above.
@@ -89,11 +86,9 @@ export class MapService {
         }),
       });
 
-      this.maps.set(name, map);
+      this.maps.set(config.id, map);
+      return map;
     });
-
-    // return map;
-    // return Observable.of(map);
   }
 
   refreshMaps() {

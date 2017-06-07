@@ -1,4 +1,5 @@
 import { Component, Type } from '@angular/core';
+
 export interface Layer {
   type: string;
   url: string;
@@ -15,6 +16,10 @@ export interface MapConfig {
   center: [number, number];
   crs: any;
   layers: Layer[];
+}
+
+export interface ClientConfig {
+  id: string;
   tools: Tool[];
   components: MenuItem[];
 }
