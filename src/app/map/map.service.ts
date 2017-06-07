@@ -2,8 +2,8 @@ import { DmSearchEvent } from '../events/event';
 import { EventManagerService } from '../events/event-manager.service';
 import { Injectable } from '@angular/core';
 
-// import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 import proj4 from 'proj4';
 
@@ -53,8 +53,8 @@ export class MapService {
     });
   }
 
-  createMap(name: string) {
-    this.mapConfigService.getMapConfig().subscribe((config: MapConfig) => {
+  createMap(): Observable<OlMap> {
+    return this.mapConfigService.getMapConfig().map((config: MapConfig) => {
       // console.log('CONFIG: ', config);
 
       let extent: Extent = [0, 0, 700000, 1300000];
@@ -78,7 +78,6 @@ export class MapService {
           new AttributionControl(),
         ]),
         layers: layers,
-        target: name,
         view: new View({
           projection: projection,
           center: config.center, // FIXME: See above.
@@ -88,6 +87,7 @@ export class MapService {
       });
 
       this.maps.set(config.id, map);
+      return map;
     });
   }
 

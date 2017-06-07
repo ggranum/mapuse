@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 
+import OlMap from 'ol/map';
 import { MapService } from './map.service';
 
 @Component({
@@ -19,6 +20,8 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit() {
     // Map needs to be created after the view has been initialized or the template
     // will not be properly defined i.e. map name will not have been set.
-    this.mapService.createMap(this.mapname);
+    this.mapService.createMap().subscribe((map: OlMap) => {
+      map.setTarget(this.mapname);
+    })
   }
 }
