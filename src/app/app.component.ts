@@ -1,5 +1,9 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Optional
+} from '@angular/core';
 
 @Component({
   selector: 'dm-root',
@@ -9,7 +13,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   theme: string;
 
-  constructor(private location: Location) { }
+  constructor(@Optional() private  location: Location) {
+    console.log('AppComponent', 'constructor')
+    debugger
+  }
   ngOnInit() {
     // Can't use the ActivatedRoute interface here because we're getting the route outside the router-outlet
     let path = this.location.path(false);
