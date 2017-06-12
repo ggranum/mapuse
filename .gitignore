@@ -14,7 +14,7 @@
 .classpath
 *.launch
 .settings/
-./chrome
+.chrome
 
 # misc
 /.sass-cache

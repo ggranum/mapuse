@@ -7,18 +7,24 @@ import {
   APP_BASE_HREF,
   CommonModule
 } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import {
+  MaterialModule,
+  MdDialogModule
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SimpleNotificationsModule } from 'angular2-notifications/dist';
 
 import { MyMapsListComponent } from './my-maps-list.component';
-import { MapModule } from '../../../../map/map.module';
 import { EventManagerService } from '../../../../events/event-manager.service';
+import {
+  CovalentDataTableModule,
+  CovalentFileModule
+} from '@covalent/core';
+import { AnnotationsModule } from '../annotations/annotations.module';
+import { MyMapsService } from './my-maps.service';
+import { FileUploadService } from '../file-upload/file-upload.service';
 
-describe('MyMapsComponent', () => {
+xdescribe('MyMapsComponent', () => {
   let component: MyMapsListComponent;
   let fixture: ComponentFixture<MyMapsListComponent>;
 
@@ -29,15 +35,15 @@ describe('MyMapsComponent', () => {
         BrowserAnimationsModule,
 
         CommonModule,
-        ReactiveFormsModule,
-        HttpModule,
-        MapModule,
+        AnnotationsModule,
         MaterialModule,
-        SimpleNotificationsModule.forRoot(),
+        MdDialogModule,
+        CovalentFileModule,
+        CovalentDataTableModule,
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
-        EventManagerService],
+        EventManagerService, MyMapsService, FileUploadService],
       declarations: [MyMapsListComponent]
     })
       .compileComponents();
