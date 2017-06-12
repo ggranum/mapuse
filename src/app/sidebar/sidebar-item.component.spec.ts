@@ -15,7 +15,7 @@ import { EventManagerService } from '../events/event-manager.service';
 import { SidebarItemComponent } from './sidebar-item.component';
 import { SidebarService } from './sidebar.service';
 
-fdescribe('MenuItemComponent', () => {
+describe('MenuItemComponent', () => {
   let component: SidebarItemComponent;
   let fixture: ComponentFixture<SidebarItemComponent>;
 
