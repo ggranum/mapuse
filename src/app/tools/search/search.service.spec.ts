@@ -1,11 +1,18 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, inject } from '@angular/core/testing';
+import {
+  inject,
+  TestBed
+} from '@angular/core/testing';
 import { SearchService } from './search.service';
+import {
+  HttpModule
+} from '@angular/http';
 
 describe('Service: Search', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpModule],
       providers: [SearchService]
     });
   });

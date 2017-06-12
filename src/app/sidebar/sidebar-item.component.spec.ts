@@ -7,18 +7,15 @@ import {
   APP_BASE_HREF,
   CommonModule
 } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SimpleNotificationsModule } from 'angular2-notifications/dist';
 import { EventManagerService } from '../events/event-manager.service';
-import { MapModule } from '../map/map.module';
 
 import { SidebarItemComponent } from './sidebar-item.component';
+import { SidebarService } from './sidebar.service';
 
-describe('MenuItemComponent', () => {
+fdescribe('MenuItemComponent', () => {
   let component: SidebarItemComponent;
   let fixture: ComponentFixture<SidebarItemComponent>;
 
@@ -29,15 +26,13 @@ describe('MenuItemComponent', () => {
         BrowserAnimationsModule,
 
         CommonModule,
-        ReactiveFormsModule,
-        HttpModule,
-        MapModule,
         MaterialModule,
-        SimpleNotificationsModule.forRoot(),
       ],
       providers: [
+        EventManagerService,
+        SidebarService,
         {provide: APP_BASE_HREF, useValue: '/'},
-        EventManagerService],
+        ],
       declarations: [SidebarItemComponent]
     })
       .compileComponents();
