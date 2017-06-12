@@ -9,9 +9,18 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
+      imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        HttpModule,
+        MapModule,
+        MaterialModule,
+        SimpleNotificationsModule.forRoot(),
+      ],
+      providers: [SearchService],
+      declarations: [ SearchComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
