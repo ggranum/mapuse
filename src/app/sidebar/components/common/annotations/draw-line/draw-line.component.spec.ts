@@ -18,12 +18,17 @@ import { SimpleNotificationsModule } from 'angular2-notifications/dist';
 import { DrawLineComponent } from './draw-line.component';
 import { MapModule } from '../../../../../map/map.module';
 import { EventManagerService } from '../../../../../events/event-manager.service';
+import { configServiceFactory } from '../../../../../config/config.service';
+import { MapConfigService } from '../../../../../config/map-config.service';
+import { osConfigFactory } from '../../../../../client/clients/os.module';
+import { MapService } from '../../../../../map/map.service';
 
 describe('DrawLineComponent', () => {
   let component: DrawLineComponent;
   let fixture: ComponentFixture<DrawLineComponent>;
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
@@ -38,7 +43,11 @@ describe('DrawLineComponent', () => {
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
-        EventManagerService],
+        EventManagerService,
+        MapService,
+        MapConfigService,
+        configServiceFactory(osConfigFactory),
+      ],
       declarations: [DrawLineComponent]
     })
       .compileComponents();
