@@ -8,16 +8,17 @@ import {
   APP_BASE_HREF,
   CommonModule
 } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SimpleNotificationsModule } from 'angular2-notifications/dist';
 
 import { FileUploadComponent } from './file-upload.component';
-import { MapModule } from '../../../../map/map.module';
 import { EventManagerService } from '../../../../events/event-manager.service';
+import {
+  CovalentDataTableModule,
+  CovalentFileModule
+} from '@covalent/core';
+import { MaterialModule } from '@angular/material';
+import { FileUploadService } from './file-upload.service';
 
 describe('FileUploadComponent', () => {
   let component: FileUploadComponent;
@@ -28,17 +29,16 @@ describe('FileUploadComponent', () => {
       imports: [
         BrowserModule,
         BrowserAnimationsModule,
-
         CommonModule,
-        ReactiveFormsModule,
-        HttpModule,
-        MapModule,
         MaterialModule,
-        SimpleNotificationsModule.forRoot(),
+        CovalentFileModule,
+        CovalentDataTableModule,
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
-        EventManagerService],
+        EventManagerService,
+        FileUploadService
+      ],
       declarations: [FileUploadComponent]
     })
       .compileComponents();

@@ -4,7 +4,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { FileUploadService } from './file-upload.service';
 import { HttpModule } from '@angular/http';
 
-fdescribe('Service: FileUpload', () => {
+describe('Service: FileUpload', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpModule],
