@@ -14,9 +14,8 @@ export class AppComponent implements OnInit {
   theme: string;
 
   constructor(@Optional() private  location: Location) {
-    console.log('AppComponent', 'constructor')
-    debugger
   }
+
   ngOnInit() {
     // Can't use the ActivatedRoute interface here because we're getting the route outside the router-outlet
     let path = this.location.path(false);
