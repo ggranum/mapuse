@@ -1,4 +1,4 @@
-/* tslint:disable:no-unused-variable */
+/* tslint:disable:no-unused-va    var MapService;ria    var MapService;ble */
 
 import { TestBed, inject } from '@angular/core/testing';
 import { DrawLineService } from './draw-line.service';

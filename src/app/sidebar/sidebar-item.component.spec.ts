@@ -1,6 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
+import {
+  APP_BASE_HREF,
+  CommonModule
+} from '@angular/common';
+import { MaterialModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventManagerService } from '../events/event-manager.service';
 
 import { SidebarItemComponent } from './sidebar-item.component';
+import { SidebarService } from './sidebar.service';
 
 describe('MenuItemComponent', () => {
   let component: SidebarItemComponent;
@@ -8,9 +21,21 @@ describe('MenuItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarItemComponent ]
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+
+        CommonModule,
+        MaterialModule,
+      ],
+      providers: [
+        EventManagerService,
+        SidebarService,
+        {provide: APP_BASE_HREF, useValue: '/'},
+        ],
+      declarations: [SidebarItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,7 +1,17 @@
 import { ComponentRef } from '@angular/core/core';
 import { SidebarService } from './sidebar.service';
 import { MenuItem } from '../config/map';
-import { Component, Type, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewChildren, ViewContainerRef, QueryList } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  Input,
+  OnInit,
+  QueryList,
+  Type,
+  ViewChild,
+  ViewChildren,
+  ViewContainerRef
+} from '@angular/core';
 
 @Component({
   selector: 'dm-sidebar-item',
@@ -21,7 +31,8 @@ export class SidebarItemComponent implements OnInit {
   @ViewChildren('placeholder', {read: ViewContainerRef})
   allViewContainerRefs: QueryList<ViewContainerRef> | undefined;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private sidebarService: SidebarService) { }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private sidebarService: SidebarService) {
+  }
 
   changeContent(item: MenuItem): void {
     // Start by hiding all current items.
@@ -56,7 +67,9 @@ export class SidebarItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.changeContent(this.initialComponent);
+    if (this.initialComponent) {
+      this.changeContent(this.initialComponent);
+    }
 
     this.sidebarService.currentMenuItem.subscribe(menuItem => {
       this.changeContent(menuItem);
