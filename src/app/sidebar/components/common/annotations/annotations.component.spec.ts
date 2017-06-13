@@ -18,6 +18,12 @@ import { SimpleNotificationsModule } from 'angular2-notifications/dist';
 import { EventManagerService } from '../../../../events/event-manager.service';
 import { MapModule } from '../../../../map/map.module';
 import { AnnotationsComponent } from './annotations.component';
+import { DrawLineComponent } from './draw-line/draw-line.component';
+import { PolygonComponent } from './polygon/polygon.component';
+import { MapService } from '../../../../map/map.service';
+import { MapConfigService } from '../../../../config/map-config.service';
+import { osConfigFactory } from '../../../../client/clients/os.module';
+import { configServiceFactory } from '../../../../config/config.service';
 
 describe('AnnotationsComponent', () => {
   let component: AnnotationsComponent;
@@ -38,8 +44,12 @@ describe('AnnotationsComponent', () => {
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
-        EventManagerService],
-      declarations: [AnnotationsComponent],
+        EventManagerService,
+        MapService,
+        MapConfigService,
+        configServiceFactory(osConfigFactory),
+      ],
+      declarations: [AnnotationsComponent, DrawLineComponent, PolygonComponent],
     })
       .compileComponents();
   }));
