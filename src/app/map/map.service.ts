@@ -15,12 +15,12 @@ import control from 'ol/control';
 import ZoomSlider from 'ol/control/zoomslider';
 import ScaleLine from 'ol/control/scaleline';
 import AttributionControl from 'ol/control/attribution';
+import TileGrid from 'ol/tilegrid/tilegrid';
 
 import Tile from 'ol/layer/tile';
 import TileWMS from 'ol/source/tilewms';
 import VectorSource from 'ol/source/vector';
 import VectorLayer from 'ol/layer/vector';
-import Extent from 'ol/extent';
 import Coordinate from 'ol/coordinate';
 import Feature from 'ol/feature';
 import Point from 'ol/geom/point';
@@ -36,6 +36,7 @@ import { MapConfig, Layer } from '../config/map';
 proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
                          ' +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,' +
                          '-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs');
+proj4.defs('EPSG:3857', '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs')
 proj.setProj4(proj4);
 
 @Injectable()
@@ -55,14 +56,13 @@ export class MapService {
 
   createMap(): Observable<OlMap> {
     return this.mapConfigService.getMapConfig().map((config: MapConfig) => {
-      // console.log('CONFIG: ', config);
+      console.log('CONFIG: ', config);
 
-      let extent: Extent = [0, 0, 700000, 1300000];
       let projection = proj.get(config.crs.code);
       proj.addProjection(projection);
 
       // Convert layer config to an array of OpenLayers Layer objects.
-      let layers = this.getLayers(config.layers, projection);
+      let layers = this.getLayers(config.layers, config.resolutions, projection);
 
       // FIXME: config.center is just an array e.g. [33600, 67500] (easting/northing)
       //        we need a better way to set the center point of the map.
@@ -80,9 +80,9 @@ export class MapService {
         layers: layers,
         view: new View({
           projection: projection,
-          center: config.center, // FIXME: See above.
-          extent: extent,
-          zoom: 6, // FIXME: Hard-coded, not good.
+          resolutions: config.resolutions,
+          zoom: 0,
+          center: config.center
         }),
       });
 
@@ -198,10 +198,25 @@ export class MapService {
   }
 
   /**
+   * Get the max resolution for this layer, as required by Open Layers, or undefined if the layer is at zoom
+   * level 0. This is a little awkward, since in OpenLayers 3 the max resolution is exclusive.
+   */
+  private getMaxResolution(layerResolutions: number[], mapResolutions: number[]): number | undefined {
+    const i = mapResolutions.findIndex(r => r === layerResolutions[0]);
+    return (i <= 0) ? undefined : mapResolutions[i - 1];
+  }
+
+  /** Get the min resolution for the layer. */
+  private getMinResolution(layerResolutions: number[]): number {
+    return layerResolutions[layerResolutions.length - 1];
+  }
+
+  /**
    * Construct a list of layers from the map config.
    */
-  private getLayers(layerConfig: Layer[], projection: proj.Projection): any[] {
+  private getLayers(layerConfig: Layer[], mapResolutions: number[], projection: proj.Projection): any[] {
     let layers: Tile[] = [];
+    let currentProducts = new Map<number, string>();
 
     for (let layerConf of layerConfig) {
       let attributions = '';
@@ -209,9 +224,18 @@ export class MapService {
         attributions += attribution;
       }
 
-      layers.push(new Tile({
+      console.log('layer resolutions: ', layerConf.resolutions);
+      const minResolution = this.getMinResolution(layerConf.resolutions);
+      const maxResolution = this.getMaxResolution(layerConf.resolutions, mapResolutions);
+
+      let tileGrid = new TileGrid({
+        origin: layerConf.extent.slice(0, 2),
+        resolutions: layerConf.resolutions,
+      });
+
+      let tile = new Tile({
         source: new TileWMS({
-          url: layerConf.url,
+          urls: layerConf.urls,
           attributions: [
             new Attribution({html: attributions}),
           ],
@@ -219,10 +243,28 @@ export class MapService {
           params: {
             'LAYERS': layerConf.sublayers,
             'FORMAT': layerConf.format,
+            'VERSION': layerConf.version,
+            'product': layerConf.product,
+            'TILED': true
           },
+          tileGrid: tileGrid
         }),
-        opacity: layerConf.opacity,
-      }));
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        opacity: layerConf.opacity
+      })
+
+      // Set only the first layer at any resolution to visible
+      layerConf.resolutions.forEach(resolution => {
+        if (!currentProducts[resolution]) {
+          tile.setVisible(true);
+          currentProducts[resolution] = layerConf.product;
+        } else {
+          tile.setVisible(false);
+        }
+      });
+
+      layers.push(tile);
     }
 
     return layers;
