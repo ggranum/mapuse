@@ -48,7 +48,7 @@ router.get('/', function(req, res) {
 router.get('/search', search.search);
 router.get('/gfi', gfi.gfi);
 router.route('/print').post(print.print);
-router.get('/config/map/:mapId', mapconfig.getMapConfig);
+router.get('/get-map-config/:mapId', mapconfig.getMapConfig);
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', router);
