@@ -17,7 +17,7 @@ const MAPPROXY_URLS = ['http://devmaps1.digimap.edina.ac.uk/mapproxy/wmsMap?',
                        'http://devmaps3.digimap.edina.ac.uk/mapproxy/wmsMap?'];
 
 const API = {
-  mapConfig: 'api/get-map-config/'
+  mapConfig: 'api/config/map/',
 };
 
 @Injectable()

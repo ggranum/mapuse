@@ -19,14 +19,8 @@ describe('App: Angular2Map', () => {
       imports: [
         RouterModule.forRoot([]),
         BrowserModule,
-        // LayoutModule,
-        // SearchModule,
         RouterModule,
-
-        // AppRoutingModule,
         MaterialModule,
-        // CovalentFileModule,
-        // CovalentDataTableModule,
         BrowserAnimationsModule,
       ],
       providers: [
